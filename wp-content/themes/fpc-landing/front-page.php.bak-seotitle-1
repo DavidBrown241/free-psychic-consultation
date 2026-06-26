@@ -1,0 +1,419 @@
+<?php
+/**
+ * Front Page — standalone landing design.
+ * Renders a self-contained document (bypasses header.php / footer.php).
+ */
+?><!doctype html>
+<html <?php language_attributes(); ?>>
+<head>
+<meta charset="<?php bloginfo('charset'); ?>"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title><?php echo esc_html( get_bloginfo('name') ); ?> — <?php echo esc_html( get_bloginfo('description') ); ?></title>
+<meta name="description" content="<?php echo esc_attr( get_bloginfo('description') ); ?>"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+:root{--bg:#f0f4f8;--bg-soft:#e4ecf4;--bg-card:#f8fafc;--ink:#0f1729;--ink-2:#2a3548;--ink-3:#5a6578;--line:#d6dfe8;--line-2:#bcc9d8;--accent:#4a6fa5;--accent-deep:#1a2842;--green:#4a7a52;--warm:#c9b88a;--serif:"Fraunces",Georgia,serif;--sans:"Inter",-apple-system,sans-serif;--mono:"JetBrains Mono",ui-monospace,monospace;}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.55}
+a{color:inherit;text-decoration:none}button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
+.container{max-width:1200px;margin:0 auto;padding:0 32px}
+.header{padding:22px 0;position:absolute;top:0;left:0;right:0;z-index:10}
+.header-inner{display:flex;justify-content:space-between;align-items:center}
+.logo{display:flex;gap:10px;align-items:center;font-family:var(--serif);font-size:20px;font-weight:500;letter-spacing:-.01em}
+.logo-mark{width:22px;height:22px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff,var(--warm) 50%,#8a7340)}
+.nav{display:flex;gap:6px}
+.nav a{padding:8px 14px;font-size:13px;color:var(--ink-2);border-radius:999px}
+.nav a:hover{background:rgba(15,23,41,.06)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:50px;padding:0 28px;font-size:15px;font-weight:600;border-radius:999px;transition:all .15s}
+.btn-primary{background:var(--ink);color:var(--bg)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 12px 28px -8px rgba(15,23,41,.3)}
+.btn-light{background:var(--bg);color:var(--ink)}
+.btn-ghost{color:var(--ink);box-shadow:inset 0 0 0 1px var(--line-2)}
+.btn-ghost:hover{box-shadow:inset 0 0 0 1px var(--ink)}
+
+/* Hero */
+.hero{padding:140px 0 96px;position:relative;overflow:hidden}
+.hero-inner{display:grid;grid-template-columns:1.1fr 1fr;gap:80px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);padding:7px 14px;background:var(--bg-card);border:1px solid var(--line);border-radius:999px;margin-bottom:24px}
+.eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(74,122,82,.18);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 4px rgba(74,122,82,.18)}50%{box-shadow:0 0 0 8px rgba(74,122,82,.08)}}
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(48px,6vw,78px);line-height:1;letter-spacing:-.03em;margin:0 0 24px}
+h1 em{font-style:italic;color:var(--accent-deep)}
+.hero-lede{font-size:19px;color:var(--ink-2);max-width:520px;margin:0 0 36px}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+.hero-trust{margin-top:48px;padding-top:28px;border-top:1px solid var(--line);display:flex;gap:32px;flex-wrap:wrap}
+.hero-trust-item{font-size:12px;color:var(--ink-3);display:flex;gap:8px;align-items:center}
+.hero-trust-item svg{width:14px;height:14px;color:var(--green)}
+.hero-trust-item strong{color:var(--ink);font-weight:600}
+
+/* Visual */
+.hero-visual{position:relative;aspect-ratio:4/5;background:linear-gradient(140deg,#d4dfeb,#e8eef5);border-radius:28px;overflow:hidden;box-shadow:0 30px 60px -24px rgba(15,23,41,.25)}
+.hero-visual::before{content:"";position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&q=85') center/cover}
+.hero-visual::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(15,23,41,.4),transparent 50%)}
+.hv-card{position:absolute;background:rgba(248,250,252,.95);backdrop-filter:blur(10px);border-radius:14px;padding:14px 18px;box-shadow:0 12px 28px -12px rgba(0,0,0,.2);display:flex;gap:10px;align-items:center}
+.hv-card-1{top:24px;left:24px}
+.hv-card-1 .pulse{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(74,122,82,.25);animation:pulse 2s infinite}
+.hv-card-1 span{font-size:12px;font-weight:500;color:var(--ink)}
+.hv-card-2{bottom:24px;left:24px;right:24px;padding:16px 18px;flex-direction:column;align-items:flex-start;gap:4px}
+.hv-card-2 .name{font-family:var(--serif);font-size:18px;font-weight:500}
+.hv-card-2 .meta{font-size:12px;color:var(--ink-3)}
+.hv-card-3{top:96px;right:-16px;padding:10px 14px;gap:6px;background:var(--ink);color:var(--bg)}
+.hv-card-3 .mono{font-family:var(--mono);font-size:10px;letter-spacing:.1em;opacity:.6}
+.hv-card-3 .big{font-family:var(--serif);font-size:18px;font-weight:500}
+
+/* Trust strip */
+.trust-strip{padding:28px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-card)}
+.trust-strip-inner{display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap}
+.trust-badge{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--ink-3)}
+.trust-badge strong{font-family:var(--serif);font-size:22px;font-weight:500;color:var(--ink);letter-spacing:-.01em}
+
+/* Sections */
+section{padding:120px 0}
+.section-head{max-width:680px;margin-bottom:64px}
+.section-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);display:flex;gap:10px;align-items:center;margin-bottom:16px}
+.section-eyebrow::before{content:"";width:32px;height:1px;background:var(--ink)}
+h2{font-family:var(--serif);font-weight:400;font-size:clamp(36px,4.5vw,54px);line-height:1.05;letter-spacing:-.025em;margin:0 0 16px}
+h2 em{font-style:italic;color:var(--accent-deep)}
+.section-lede{font-size:17px;color:var(--ink-2);max-width:560px}
+
+/* Offer */
+.offer{background:var(--ink);color:var(--bg);border-radius:28px;padding:72px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.offer h2{color:var(--bg)}
+.offer h2 em{color:var(--warm)}
+.offer-lede{color:rgba(246,241,232,.75);font-size:17px;margin-bottom:32px}
+.offer-list{list-style:none;padding:0;margin:0 0 32px;display:flex;flex-direction:column;gap:14px}
+.offer-list li{display:flex;gap:12px;align-items:flex-start;font-size:15px;color:rgba(246,241,232,.9)}
+.offer-list svg{flex:0 0 auto;margin-top:3px;color:var(--warm)}
+.offer-counter{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:32px;text-align:center}
+.counter-label{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--warm);margin-bottom:12px}
+.counter-big{font-family:var(--serif);font-size:64px;font-weight:400;letter-spacing:-.02em;line-height:1;margin-bottom:8px}
+.counter-sub{opacity:.7;font-size:13px;margin-bottom:24px}
+.counter-bar{height:5px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden;margin-bottom:12px}
+.counter-bar-fill{height:100%;background:var(--warm);width:62%;border-radius:3px}
+.counter-meta{font-family:var(--mono);font-size:11px;color:rgba(255,255,255,.5);letter-spacing:.05em;text-transform:uppercase}
+
+/* How it works */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;counter-reset:step}
+.step{background:var(--bg-card);border:1px solid var(--line);border-radius:20px;padding:32px;position:relative;counter-increment:step}
+.step-num{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--ink-3);margin-bottom:24px}
+.step-num::before{content:"0" counter(step) " / 03";}
+.step-icon{width:56px;height:56px;border-radius:14px;background:var(--bg-soft);display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.step-icon svg{width:26px;height:26px;color:var(--accent-deep);stroke-width:1.5}
+.step h3{font-family:var(--serif);font-size:22px;font-weight:500;letter-spacing:-.015em;margin:0 0 10px}
+.step p{color:var(--ink-3);font-size:14px;margin:0}
+
+/* Psychics */
+.psychics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.psychic{background:var(--bg-card);border:1px solid var(--line);border-radius:20px;overflow:hidden;cursor:pointer;transition:all .2s}
+.psychic:hover{transform:translateY(-4px);box-shadow:0 20px 40px -16px rgba(15,23,41,.15)}
+.psychic-photo{aspect-ratio:4/5;background-size:cover;background-position:center;position:relative}
+.psychic-status{position:absolute;top:12px;left:12px;background:rgba(248,250,252,.95);backdrop-filter:blur(10px);border-radius:999px;padding:5px 10px;font-size:11px;font-weight:500;display:flex;gap:6px;align-items:center}
+.psychic-status .dot{width:6px;height:6px;border-radius:50%;background:var(--green)}
+.psychic-body{padding:20px}
+.psychic-name{font-family:var(--serif);font-size:19px;font-weight:500;letter-spacing:-.01em;margin-bottom:4px}
+.psychic-spec{font-size:13px;color:var(--ink-3);margin-bottom:12px}
+.psychic-stats{display:flex;justify-content:space-between;padding-top:14px;border-top:1px solid var(--line);font-size:12px}
+.psychic-stats span{color:var(--ink-3)}
+.psychic-stats strong{color:var(--ink);font-family:var(--serif);font-size:14px;font-weight:500;display:block;margin-top:2px}
+
+/* Testimonial */
+.testimonial-wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.testimonial blockquote{font-family:var(--serif);font-size:clamp(28px,3.5vw,42px);line-height:1.15;letter-spacing:-.015em;font-weight:400;margin:0 0 32px}
+.testimonial blockquote em{font-style:italic;color:var(--accent-deep)}
+.testimonial-attr{display:flex;gap:14px;align-items:center}
+.t-photo{width:52px;height:52px;border-radius:50%;background-size:cover;background-position:center;background-image:url('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80')}
+.t-name{font-weight:500;font-size:15px}
+.t-meta{font-size:12px;color:var(--ink-3);margin-top:2px}
+.testimonial-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.stat-card{background:var(--bg-card);border:1px solid var(--line);border-radius:18px;padding:28px}
+.stat-val{font-family:var(--serif);font-size:44px;font-weight:400;letter-spacing:-.025em;line-height:1;margin-bottom:6px}
+.stat-val em{color:var(--accent-deep);font-style:italic}
+.stat-label{font-size:13px;color:var(--ink-3);max-width:180px}
+
+/* FAQ */
+.faq-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:64px;align-items:flex-start}
+.faq-list{display:flex;flex-direction:column}
+.faq-item{border-top:1px solid var(--line);padding:22px 0}
+.faq-item:last-child{border-bottom:1px solid var(--line)}
+.faq-q{display:flex;justify-content:space-between;width:100%;text-align:left;font-family:var(--serif);font-size:20px;font-weight:500;letter-spacing:-.01em;cursor:pointer;gap:24px}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--ink-3);font-size:15px}
+.faq-item.open .faq-a{max-height:200px;padding-top:12px}
+.faq-icon{width:26px;height:26px;border-radius:50%;border:1px solid var(--line-2);display:flex;align-items:center;justify-content:center;font-size:14px;flex:0 0 auto;transition:all .2s}
+.faq-item.open .faq-icon{background:var(--ink);color:var(--bg);border-color:var(--ink);transform:rotate(45deg)}
+
+/* Final CTA */
+.final{text-align:center;padding:140px 0;background:var(--bg-card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.final h2{margin:0 auto 20px;max-width:820px}
+.final-lede{font-size:18px;color:var(--ink-2);max-width:540px;margin:0 auto 36px}
+.final-ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.final-foot{margin-top:32px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+
+/* Footer */
+.footer{padding:48px 0;font-size:12px;color:var(--ink-3);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+@media (max-width:960px){
+  .hero-inner,.offer,.testimonial-wrap,.faq-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  .psychics-grid{grid-template-columns:repeat(2,1fr)}
+  .offer{padding:48px 32px}
+  .nav{display:none}
+  section{padding:80px 0}
+}
+
+</style>
+<?php wp_head(); ?>
+</head>
+<body <?php body_class('landing-page'); ?>>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel">
+const { useState } = React;
+
+const PSYCHICS = [
+  { name:"Elena Marsh", spec:"Love & Relationships", rating:"4.9", reads:"2,840", photo:"https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=500&q=85" },
+  { name:"Ruth Callahan", spec:"Mediumship & Grief", rating:"4.9", reads:"3,120", photo:"https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=500&q=85" },
+  { name:"Nova Bennett", spec:"Tarot · Intuitive", rating:"4.8", reads:"1,760", photo:"https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&q=85" },
+  { name:"Priya Shah", spec:"Vedic Astrology", rating:"4.9", reads:"2,210", photo:"https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=500&q=85" },
+];
+
+const FAQ = [
+  { q:"What's actually free?", a:"Your first five minutes with any practitioner on the platform. No card required, no hidden trial — you can end the session at five minutes and pay nothing." },
+  { q:"Do I need to sign up?", a:"Only an email so we can match you and send a summary. We don't share it. Deleting your account wipes every record." },
+  { q:"What if I don't feel a connection?", a:"Leave. No questions asked. If you've already spent more than five minutes, our team reviews and refunds when the session wasn't a fit." },
+  { q:"Are the practitioners actually vetted?", a:"Yes — we reject roughly 96% of applicants. Every practitioner is interviewed, background-checked, and test-read by our editorial team before joining." },
+  { q:"How does pricing work after the free window?", a:"You see the per-minute rate before the call and the running total during it. No surprises, no auto-renew, no minimums beyond the session itself." },
+];
+
+function App() {
+  const [openFaq, setOpenFaq] = useState(0);
+  return (
+    <>
+      <header className="header">
+        <div className="container header-inner">
+          <div className="logo"><span className="logo-mark"/>First Light</div>
+          <nav className="nav">
+            <a>How it works</a><a>Practitioners</a><a>Pricing</a><a>Reviews</a>
+          </nav>
+          <button className="btn btn-ghost" style={{height:40,padding:"0 20px"}}>Sign in</button>
+        </div>
+      </header>
+
+      <section className="hero">
+        <div className="container hero-inner">
+          <div>
+            <span className="eyebrow"><span className="dot"/>12 practitioners available now</span>
+            <h1>Your first five minutes<br/><em>are on us.</em></h1>
+            <p className="hero-lede">Talk to a vetted psychic today — at no cost for the first session. End anytime. No card required. If it's not right, you pay nothing.</p>
+            <div className="hero-ctas">
+              <button className="btn btn-primary">Start free consultation
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </button>
+              <button className="btn btn-ghost">Browse practitioners</button>
+            </div>
+            <div className="hero-trust">
+              <div className="hero-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M20 6L9 17l-5-5"/></svg><span><strong>No card</strong> required</span></div>
+              <div className="hero-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M20 6L9 17l-5-5"/></svg><span><strong>End anytime</strong> — no charge</span></div>
+              <div className="hero-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M20 6L9 17l-5-5"/></svg><span><strong>Anonymous</strong> by default</span></div>
+            </div>
+          </div>
+          <div className="hero-visual">
+            <div className="hv-card hv-card-1"><span className="pulse"/><span>Elena is available · 2m wait</span></div>
+            <div className="hv-card hv-card-2">
+              <div className="name">Elena Marsh</div>
+              <div className="meta">Love & Relationships · 19 years · 4.9 ★</div>
+            </div>
+            <div className="hv-card hv-card-3">
+              <div>
+                <div className="mono">First 5 min</div>
+                <div className="big">Free</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="trust-strip">
+        <div className="container trust-strip-inner">
+          <div className="trust-badge"><span>Trusted by</span><strong>147,000+</strong><span>first-time callers</span></div>
+          <div className="trust-badge"><span>Avg rating</span><strong>4.88 / 5</strong><span>across 38k reviews</span></div>
+          <div className="trust-badge"><span>Practitioners</span><strong>4% acceptance</strong><span>from applicants</span></div>
+          <div className="trust-badge"><span>Refund policy</span><strong>100%</strong><span>honored, no questions</span></div>
+        </div>
+      </div>
+
+      <section>
+        <div className="container">
+          <div className="offer">
+            <div>
+              <div className="section-eyebrow" style={{color:"var(--warm)"}}><span style={{background:"var(--warm)",width:32,height:1,display:"inline-block"}}></span>The offer, in plain words</div>
+              <h2>Five free minutes.<br/><em>No strings.</em></h2>
+              <p className="offer-lede">Pick any practitioner. Start the conversation. If at five minutes it's not landing, hang up — nothing leaves your wallet. If it is, keep going at their posted rate.</p>
+              <ul className="offer-list">
+                <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"><path d="M20 6L9 17l-5-5"/></svg>No card, no deposit, no trial signup</li>
+                <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"><path d="M20 6L9 17l-5-5"/></svg>A clear running-cost meter once the free window ends</li>
+                <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"><path d="M20 6L9 17l-5-5"/></svg>Every session is encrypted and can be deleted on request</li>
+                <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"><path d="M20 6L9 17l-5-5"/></svg>Refund if a practitioner wasn't the right fit</li>
+              </ul>
+              <button className="btn btn-light">Claim your free five minutes →</button>
+            </div>
+            <div className="offer-counter">
+              <div className="counter-label">Free sessions today</div>
+              <div className="counter-big">384 / 600</div>
+              <div className="counter-sub">Daily cap keeps quality high</div>
+              <div className="counter-bar"><div className="counter-bar-fill"/></div>
+              <div className="counter-meta">216 remaining · resets at midnight</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div className="container">
+          <div className="section-head">
+            <div className="section-eyebrow">How it works</div>
+            <h2>Three small steps.<br/><em>No theater.</em></h2>
+            <p className="section-lede">We've kept the whole flow quiet on purpose. Starting a reading shouldn't feel like signing a lease.</p>
+          </div>
+          <div className="steps">
+            <div className="step">
+              <div className="step-num"></div>
+              <div className="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
+              <h3>Find someone who fits</h3>
+              <p>Browse by specialty, or take the two-minute Inner Compass test. We'll match you to two practitioners whose style aligns with what you're carrying.</p>
+            </div>
+            <div className="step">
+              <div className="step-num"></div>
+              <div className="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+              <h3>Start the conversation</h3>
+              <p>Voice or written chat, your choice. A clear timer shows your free minutes remaining, and your running cost if you continue beyond.</p>
+            </div>
+            <div className="step">
+              <div className="step-num"></div>
+              <div className="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></div>
+              <h3>Keep going — or don't</h3>
+              <p>At five minutes, you decide. End the call (pay nothing), or continue at the practitioner's posted rate. No pressure either way.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section style={{background:"var(--bg-card)"}}>
+        <div className="container">
+          <div className="section-head">
+            <div className="section-eyebrow">Who you'll be talking to</div>
+            <h2>Practitioners available <em>today.</em></h2>
+            <p className="section-lede">Each has been vetted, tested, and interviewed. We accept fewer than four in a hundred applicants.</p>
+          </div>
+          <div className="psychics-grid">
+            {PSYCHICS.map(p => (
+              <div key={p.name} className="psychic">
+                <div className="psychic-photo" style={{backgroundImage:`url(${p.photo})`}}>
+                  <div className="psychic-status"><span className="dot"/>Available</div>
+                </div>
+                <div className="psychic-body">
+                  <div className="psychic-name">{p.name}</div>
+                  <div className="psychic-spec">{p.spec}</div>
+                  <div className="psychic-stats">
+                    <span>Rating<strong>★ {p.rating}</strong></span>
+                    <span>Readings<strong>{p.reads}</strong></span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div className="container">
+          <div className="testimonial-wrap">
+            <div className="testimonial">
+              <div className="section-eyebrow">What people say</div>
+              <blockquote>"I'd never done this before and was honestly skeptical. The five free minutes turned into an hour. It was the first time someone really <em>listened</em> — and said something useful back."</blockquote>
+              <div className="testimonial-attr">
+                <div className="t-photo"/>
+                <div>
+                  <div className="t-name">Maren K., first reading</div>
+                  <div className="t-meta">Session with Ruth Callahan · 72 minutes</div>
+                </div>
+              </div>
+            </div>
+            <div className="testimonial-stats">
+              <div className="stat-card">
+                <div className="stat-val">94<em>%</em></div>
+                <div className="stat-label">of first-timers continue past the free window</div>
+              </div>
+              <div className="stat-card">
+                <div className="stat-val">4.88</div>
+                <div className="stat-label">avg. rating across 38,000+ reviews</div>
+              </div>
+              <div className="stat-card">
+                <div className="stat-val"><em>38k</em></div>
+                <div className="stat-label">reviews read by real editors, not bots</div>
+              </div>
+              <div className="stat-card">
+                <div className="stat-val">&lt;2m</div>
+                <div className="stat-label">typical wait to start a session</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div className="container">
+          <div className="faq-grid">
+            <div>
+              <div className="section-eyebrow">Straight answers</div>
+              <h2>Before you start, <em>a few things.</em></h2>
+              <p className="section-lede" style={{marginTop:16}}>If there's something not covered here, our team answers within a few hours.</p>
+            </div>
+            <div className="faq-list">
+              {FAQ.map((f,i) => (
+                <div key={i} className={"faq-item" + (openFaq === i ? " open" : "")}>
+                  <button className="faq-q" onClick={() => setOpenFaq(openFaq === i ? -1 : i)}>
+                    {f.q}
+                    <span className="faq-icon">+</span>
+                  </button>
+                  <div className="faq-a">{f.a}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="final">
+        <div className="container">
+          <div className="section-eyebrow" style={{justifyContent:"center",display:"inline-flex"}}>Ready when you are</div>
+          <h2>Your first five minutes<br/>are <em>already waiting.</em></h2>
+          <p className="final-lede">No card. No catch. End the call anytime — you pay nothing if it's not the right fit.</p>
+          <div className="final-ctas">
+            <button className="btn btn-primary">Start my free consultation
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+            <button className="btn btn-ghost">Take the 2-min test first</button>
+          </div>
+          <div className="final-foot">216 free sessions remaining today · resets at midnight</div>
+        </div>
+      </section>
+
+      <footer className="footer container">
+        <span>© 2026 First Light · A free trial by Clairo</span>
+        <span>Privacy · Terms · Practitioner code of conduct</span>
+      </footer>
+    </>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+</script>
+<?php wp_footer(); ?>
+</body>
+</html>
