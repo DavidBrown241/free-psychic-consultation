@@ -1,364 +1,187 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html lang="en-US">
-
 <head>
-
-<meta charset="UTF-8"/>
-
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..500&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
 <style>
 
-
-
 :root{--bg:#f0f4f8;--bg-soft:#e4ecf4;--bg-card:#f8fafc;--ink:#0f1729;--ink-2:#2a3548;--ink-3:#5a6578;--line:#d6dfe8;--line-2:#bcc9d8;--accent:#4a6fa5;--accent-deep:#1a2842;--green:#4a7a52;--warm:#c9b88a;--serif:"Fraunces",Georgia,serif;--sans:"Inter",-apple-system,sans-serif;--mono:"JetBrains Mono",ui-monospace,monospace;}
-
 *{box-sizing:border-box}html,body{margin:0;padding:0}
-
 body{font-family:var(--sans);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.55}
-
 a{color:inherit;text-decoration:none}button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
-
 .container{max-width:1200px;margin:0 auto;padding:0 32px}
-
 .header{padding:22px 0;position:absolute;top:0;left:0;right:0;z-index:10}
-
 .header-inner{display:flex;justify-content:space-between;align-items:center}
-
 .logo{display:flex;gap:10px;align-items:center;font-family:var(--serif);font-size:20px;font-weight:500;letter-spacing:-.01em}
-
 .logo-mark{width:22px;height:22px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff,var(--warm) 50%,#8a7340)}
-
 .nav{display:flex;gap:6px}
-
 .nav a{padding:8px 14px;font-size:13px;color:var(--ink-2);border-radius:999px}
-
 .nav a:hover{background:rgba(15,23,41,.06)}
-
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:50px;padding:0 28px;font-size:15px;font-weight:600;border-radius:999px;transition:all .15s}
-
 .btn-primary{background:var(--ink);color:var(--bg)}
-
 .btn-primary:hover{transform:translateY(-1px);box-shadow:0 12px 28px -8px rgba(15,23,41,.3)}
-
 .btn-light{background:var(--bg);color:var(--ink)}
-
 .btn-ghost{color:var(--ink);box-shadow:inset 0 0 0 1px var(--line-2)}
-
 .btn-ghost:hover{box-shadow:inset 0 0 0 1px var(--ink)}
 
-
-
 /* Hero */
-
 .hero{padding:140px 0 96px;position:relative;overflow:hidden}
-
 .hero-inner{display:grid;grid-template-columns:1.1fr 1fr;gap:80px;align-items:center}
-
 .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);padding:7px 14px;background:var(--bg-card);border:1px solid var(--line);border-radius:999px;margin-bottom:24px}
-
 .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(74,122,82,.18);animation:pulse 2s infinite}
-
 @keyframes pulse{0%,100%{box-shadow:0 0 0 4px rgba(74,122,82,.18)}50%{box-shadow:0 0 0 8px rgba(74,122,82,.08)}}
-
 h1{font-family:var(--serif);font-weight:400;font-size:clamp(48px,6vw,78px);line-height:1;letter-spacing:-.03em;margin:0 0 24px}
-
 h1 em{font-style:italic;color:var(--accent-deep)}
-
 .hero-lede{font-size:19px;color:var(--ink-2);max-width:520px;margin:0 0 36px}
-
 .hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
-
 .hero-trust{margin-top:48px;padding-top:28px;border-top:1px solid var(--line);display:flex;gap:32px;flex-wrap:wrap}
-
 .hero-trust-item{font-size:12px;color:var(--ink-3);display:flex;gap:8px;align-items:center}
-
 .hero-trust-item svg{width:14px;height:14px;color:var(--green)}
-
 .hero-trust-item strong{color:var(--ink);font-weight:600}
 
-
-
 /* Visual */
-
 .hero-visual{position:relative;aspect-ratio:4/5;background:linear-gradient(140deg,#d4dfeb,#e8eef5);border-radius:28px;overflow:hidden;box-shadow:0 30px 60px -24px rgba(15,23,41,.25)}
-
 .hero-visual::before{content:"";position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&q=85') center/cover}
-
 .hero-visual::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(15,23,41,.4),transparent 50%)}
-
 .hv-card{position:absolute;background:rgba(248,250,252,.95);backdrop-filter:blur(10px);border-radius:14px;padding:14px 18px;box-shadow:0 12px 28px -12px rgba(0,0,0,.2);display:flex;gap:10px;align-items:center}
-
 .hv-card-1{top:24px;left:24px}
-
 .hv-card-1 .pulse{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(74,122,82,.25);animation:pulse 2s infinite}
-
 .hv-card-1 span{font-size:12px;font-weight:500;color:var(--ink)}
-
 .hv-card-2{bottom:24px;left:24px;right:24px;padding:16px 18px;flex-direction:column;align-items:flex-start;gap:4px}
-
 .hv-card-2 .name{font-family:var(--serif);font-size:18px;font-weight:500}
-
 .hv-card-2 .meta{font-size:12px;color:var(--ink-3)}
-
 .hv-card-3{top:96px;right:-16px;padding:10px 14px;gap:6px;background:var(--ink);color:var(--bg)}
-
 .hv-card-3 .mono{font-family:var(--mono);font-size:10px;letter-spacing:.1em;opacity:.6}
-
 .hv-card-3 .big{font-family:var(--serif);font-size:18px;font-weight:500}
 
-
-
 /* Trust strip */
-
 .trust-strip{padding:28px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-card)}
-
 .trust-strip-inner{display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap}
-
 .trust-badge{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--ink-3)}
-
 .trust-badge strong{font-family:var(--serif);font-size:22px;font-weight:500;color:var(--ink);letter-spacing:-.01em}
 
-
-
 /* Sections */
-
 section{padding:120px 0}
-
 .section-head{max-width:680px;margin-bottom:64px}
-
 .section-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);display:flex;gap:10px;align-items:center;margin-bottom:16px}
-
 .section-eyebrow::before{content:"";width:32px;height:1px;background:var(--ink)}
-
 h2{font-family:var(--serif);font-weight:400;font-size:clamp(36px,4.5vw,54px);line-height:1.05;letter-spacing:-.025em;margin:0 0 16px}
-
 h2 em{font-style:italic;color:var(--accent-deep)}
-
 .section-lede{font-size:17px;color:var(--ink-2);max-width:560px}
 
-
-
 /* Offer */
-
 .offer{background:var(--ink);color:var(--bg);border-radius:28px;padding:72px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
-
 .offer h2{color:var(--bg)}
-
 .offer h2 em{color:var(--warm)}
-
 .offer-lede{color:rgba(246,241,232,.75);font-size:17px;margin-bottom:32px}
-
 .offer-list{list-style:none;padding:0;margin:0 0 32px;display:flex;flex-direction:column;gap:14px}
-
 .offer-list li{display:flex;gap:12px;align-items:flex-start;font-size:15px;color:rgba(246,241,232,.9)}
-
 .offer-list svg{flex:0 0 auto;margin-top:3px;color:var(--warm)}
-
 .offer-counter{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:32px;text-align:center}
-
 .counter-label{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--warm);margin-bottom:12px}
-
 .counter-big{font-family:var(--serif);font-size:64px;font-weight:400;letter-spacing:-.02em;line-height:1;margin-bottom:8px}
-
 .counter-sub{opacity:.7;font-size:13px;margin-bottom:24px}
-
 .counter-bar{height:5px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden;margin-bottom:12px}
-
 .counter-bar-fill{height:100%;background:var(--warm);width:62%;border-radius:3px}
-
 .counter-meta{font-family:var(--mono);font-size:11px;color:rgba(255,255,255,.5);letter-spacing:.05em;text-transform:uppercase}
 
-
-
 /* How it works */
-
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;counter-reset:step}
-
 .step{background:var(--bg-card);border:1px solid var(--line);border-radius:20px;padding:32px;position:relative;counter-increment:step}
-
 .step-num{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--ink-3);margin-bottom:24px}
-
 .step-num::before{content:"0" counter(step) " / 03";}
-
 .step-icon{width:56px;height:56px;border-radius:14px;background:var(--bg-soft);display:flex;align-items:center;justify-content:center;margin-bottom:20px}
-
 .step-icon svg{width:26px;height:26px;color:var(--accent-deep);stroke-width:1.5}
-
 .step h3{font-family:var(--serif);font-size:22px;font-weight:500;letter-spacing:-.015em;margin:0 0 10px}
-
 .step p{color:var(--ink-3);font-size:14px;margin:0}
 
-
-
 /* Psychics */
-
 .psychics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-
 .psychic{background:var(--bg-card);border:1px solid var(--line);border-radius:20px;overflow:hidden;cursor:pointer;transition:all .2s}
-
 .psychic:hover{transform:translateY(-4px);box-shadow:0 20px 40px -16px rgba(15,23,41,.15)}
-
 .psychic-photo{aspect-ratio:4/5;background-size:cover;background-position:center;position:relative}
-
 .psychic-status{position:absolute;top:12px;left:12px;background:rgba(248,250,252,.95);backdrop-filter:blur(10px);border-radius:999px;padding:5px 10px;font-size:11px;font-weight:500;display:flex;gap:6px;align-items:center}
-
 .psychic-status .dot{width:6px;height:6px;border-radius:50%;background:var(--green)}
-
 .psychic-body{padding:20px}
-
 .psychic-name{font-family:var(--serif);font-size:19px;font-weight:500;letter-spacing:-.01em;margin-bottom:4px}
-
 .psychic-spec{font-size:13px;color:var(--ink-3);margin-bottom:12px}
-
 .psychic-stats{display:flex;justify-content:space-between;padding-top:14px;border-top:1px solid var(--line);font-size:12px}
-
 .psychic-stats span{color:var(--ink-3)}
-
 .psychic-stats strong{color:var(--ink);font-family:var(--serif);font-size:14px;font-weight:500;display:block;margin-top:2px}
 
-
-
 /* Testimonial */
-
 .testimonial-wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-
 .testimonial blockquote{font-family:var(--serif);font-size:clamp(28px,3.5vw,42px);line-height:1.15;letter-spacing:-.015em;font-weight:400;margin:0 0 32px}
-
 .testimonial blockquote em{font-style:italic;color:var(--accent-deep)}
-
 .testimonial-attr{display:flex;gap:14px;align-items:center}
-
 .t-photo{width:52px;height:52px;border-radius:50%;background-size:cover;background-position:center;background-image:url('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80')}
-
 .t-name{font-weight:500;font-size:15px}
-
 .t-meta{font-size:12px;color:var(--ink-3);margin-top:2px}
-
 .testimonial-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
-
 .stat-card{background:var(--bg-card);border:1px solid var(--line);border-radius:18px;padding:28px}
-
 .stat-val{font-family:var(--serif);font-size:44px;font-weight:400;letter-spacing:-.025em;line-height:1;margin-bottom:6px}
-
 .stat-val em{color:var(--accent-deep);font-style:italic}
-
 .stat-label{font-size:13px;color:var(--ink-3);max-width:180px}
 
-
-
 /* FAQ */
-
 .faq-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:64px;align-items:flex-start}
-
 .faq-list{display:flex;flex-direction:column}
-
 .faq-item{border-top:1px solid var(--line);padding:22px 0}
-
 .faq-item:last-child{border-bottom:1px solid var(--line)}
-
 .faq-q{display:flex;justify-content:space-between;width:100%;text-align:left;font-family:var(--serif);font-size:20px;font-weight:500;letter-spacing:-.01em;cursor:pointer;gap:24px}
-
 .faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--ink-3);font-size:15px}
-
-.faq-item.open .faq-a{max-height:200px;padding-top:12px}
-
+.faq-item.open .faq-a,.faq-item[open] .faq-a{max-height:200px;padding-top:12px}
 .faq-icon{width:26px;height:26px;border-radius:50%;border:1px solid var(--line-2);display:flex;align-items:center;justify-content:center;font-size:14px;flex:0 0 auto;transition:all .2s}
-
-.faq-item.open .faq-icon{background:var(--ink);color:var(--bg);border-color:var(--ink);transform:rotate(45deg)}
-
-
+.faq-item.open .faq-icon,.faq-item[open] .faq-icon{background:var(--ink);color:var(--bg);border-color:var(--ink);transform:rotate(45deg)}
+/* native <details>/<summary> support (no-JS FAQ accordion, replaces the old React state toggle) */
+.faq-item{list-style:none}
+.faq-q::-webkit-details-marker,.faq-q::marker{display:none;content:""}
+.faq-item .faq-a{display:none}
+.faq-item[open] .faq-a{display:block}
 
 /* Final CTA */
-
 .final{text-align:center;padding:140px 0;background:var(--bg-card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-
 .final h2{margin:0 auto 20px;max-width:820px}
-
 .final-lede{font-size:18px;color:var(--ink-2);max-width:540px;margin:0 auto 36px}
-
 .final-ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-
 .final-foot{margin-top:32px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
 
-
-
 /* Footer */
-
 .footer{padding:48px 0;font-size:12px;color:var(--ink-3);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
-
-
 @media (max-width:960px){
-
   .hero-inner,.offer,.testimonial-wrap,.faq-grid{grid-template-columns:1fr}
-
   .steps{grid-template-columns:1fr}
-
   .psychics-grid{grid-template-columns:repeat(2,1fr)}
-
   .offer{padding:48px 32px}
-
   .nav{display:none}
-
   section{padding:80px 0}
-
 }
 
-
-
 </style>
-
-<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
-
-
-	<!-- This site is optimized with the Yoast SEO plugin v27.1.1 - https://yoast.com/product/yoast-seo-wordpress/ -->
-
-	<title>Free Psychic Consultation Online | Real &amp; Trusted Advisors</title>
-
-	<meta name="description" content="Free psychic consultation — talk to a real reader before you commit. Verified readers, transparent ratings. Real psychic guidance, available 24/7." />
-
-	<link rel="canonical" href="https://free-psychic-consultation.com/" />
-
-	<meta property="og:locale" content="en_US" />
-
-	<meta property="og:type" content="website" />
-
-	<meta property="og:title" content="Free Psychic Consultation Online | Real &amp; Trusted Advisors" />
-
-	<meta property="og:description" content="Free psychic consultation — talk to a real reader before you commit. Verified readers, transparent ratings. Real psychic guidance, available 24/7." />
-
-	<meta property="og:url" content="https://free-psychic-consultation.com/" />
-
-	<meta property="og:site_name" content="Free Psychic Consult" />
-
-	<meta property="article:modified_time" content="2026-03-09T21:13:58+00:00" />
-
-	<meta property="og:image" content="https://free-psychic-consultation.com/wp-content/uploads/2026/03/site_9_favicon.png" />
-
-	<meta name="twitter:card" content="summary_large_image" />
-
-	<meta name="twitter:title" content="Free Psychic Consultation Online | Real &amp; Trusted Advisors" />
-
-	<meta name="twitter:description" content="Free psychic consultation — talk to a real reader before you commit. Verified readers, transparent ratings. Real psychic guidance, available 24/7." />
-
-	<meta name="twitter:image" content="https://free-psychic-consultation.com/wp-content/uploads/2026/03/site_9_favicon.png" />
-
-	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://free-psychic-consultation.com/","url":"https://free-psychic-consultation.com/","name":"Free Psychic Consultation Online | Real &amp; Trusted Advisors","isPartOf":{"@id":"https://free-psychic-consultation.com/#website"},"datePublished":"2026-03-04T19:40:02+00:00","dateModified":"2026-03-09T21:13:58+00:00","description":"Free psychic consultation — talk to a real reader before you commit. Verified readers, transparent ratings. Real psychic guidance, available 24/7.","breadcrumb":{"@id":"https://free-psychic-consultation.com/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://free-psychic-consultation.com/"]}]},{"@type":"BreadcrumbList","@id":"https://free-psychic-consultation.com/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home"}]},{"@type":"WebSite","@id":"https://free-psychic-consultation.com/#website","url":"https://free-psychic-consultation.com/","name":"Free Psychic Consult","description":"Free psychic consultation — talk to a real reader before you commit.","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://free-psychic-consultation.com/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"}]}</script>
-
-	<!-- / Yoast SEO plugin. -->
-
-
-
-
-
+<meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"/>
+<!-- This site is optimized with the Yoast SEO plugin v27.1.1 - https://yoast.com/product/yoast-seo-wordpress/ -->
+<title>Free Psychic Consultation Online | Real &amp; Trusted Advisors</title>
+<meta content="Free psychic consultation — talk to a real reader before you commit. Verified readers, transparent ratings. Real psychic guidance, available 24/7." name="description"/>
+<link href="https://free-psychic-consultation.com/" rel="canonical">
+<meta content="en_US" property="og:locale"/>
+<meta content="website" property="og:type"/>
+<meta content="Free Psychic Consultation Online | Real &amp; Trusted Advisors" property="og:title"/>
+<meta content="Free psychic consultation — talk to a real reader before you commit. Verified readers, transparent ratings. Real psychic guidance, available 24/7." property="og:description"/>
+<meta content="https://free-psychic-consultation.com/" property="og:url"/>
+<meta content="Free Psychic Consult" property="og:site_name"/>
+<meta content="2026-07-28T18:15:10+00:00" property="article:modified_time"/>
+<meta content="https://free-psychic-consultation.com/wp-content/uploads/2026/03/site_9_favicon.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Free Psychic Consultation Online | Real &amp; Trusted Advisors" name="twitter:title"/>
+<meta content="Free psychic consultation — talk to a real reader before you commit. Verified readers, transparent ratings. Real psychic guidance, available 24/7." name="twitter:description"/>
+<meta content="https://free-psychic-consultation.com/wp-content/uploads/2026/03/site_9_favicon.png" name="twitter:image"/>
+<script class="yoast-schema-graph" type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://free-psychic-consultation.com/","url":"https://free-psychic-consultation.com/","name":"Free Psychic Consultation Online | Real &amp; Trusted Advisors","isPartOf":{"@id":"https://free-psychic-consultation.com/#website"},"datePublished":"2026-03-04T19:40:02+00:00","dateModified":"2026-07-28T18:15:10+00:00","description":"Free psychic consultation — talk to a real reader before you commit. Verified readers, transparent ratings. Real psychic guidance, available 24/7.","breadcrumb":{"@id":"https://free-psychic-consultation.com/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://free-psychic-consultation.com/"]}]},{"@type":"BreadcrumbList","@id":"https://free-psychic-consultation.com/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home"}]},{"@type":"WebSite","@id":"https://free-psychic-consultation.com/#website","url":"https://free-psychic-consultation.com/","name":"Free Psychic Consult","description":"Free psychic consultation — talk to a real reader before you commit.","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://free-psychic-consultation.com/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"}]}</script>
+<!-- / Yoast SEO plugin. -->
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 /*# sourceURL=wp-img-auto-sizes-contain-inline-css */
@@ -379,27 +202,54 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 /*# sourceURL=wp-emoji-styles-inline-css */
 </style>
 <style id="wp-block-library-inline-css">
-:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style*=border-color]){border-style:solid}html :where([style*=border-top-color]){border-top-style:solid}html :where([style*=border-right-color]){border-right-style:solid}html :where([style*=border-bottom-color]){border-bottom-style:solid}html :where([style*=border-left-color]){border-left-style:solid}html :where([style*=border-width]){border-style:solid}html :where([style*=border-top-width]){border-top-style:solid}html :where([style*=border-right-width]){border-right-style:solid}html :where([style*=border-bottom-width]){border-bottom-style:solid}html :where([style*=border-left-width]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-break:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style^=border-color],[style*=";border-color"],[style*="; border-color"]){border-style:solid}html :where([style^=border-top-color],[style*=";border-top-color"],[style*="; border-top-color"]){border-top-style:solid}html :where([style^=border-right-color],[style*=";border-right-color"],[style*="; border-right-color"]){border-right-style:solid}html :where([style^=border-bottom-color],[style*=";border-bottom-color"],[style*="; border-bottom-color"]){border-bottom-style:solid}html :where([style^=border-left-color],[style*=";border-left-color"],[style*="; border-left-color"]){border-left-style:solid}html :where([style^=border-width],[style*=";border-width"],[style*="; border-width"]){border-style:solid}html :where([style^=border-top-width],[style*=";border-top-width"],[style*="; border-top-width"]){border-top-style:solid}html :where([style^=border-right-width],[style*=";border-right-width"],[style*="; border-right-width"]){border-right-style:solid}html :where([style^=border-bottom-width],[style*=";border-bottom-width"],[style*="; border-bottom-width"]){border-bottom-style:solid}html :where([style^=border-left-width],[style*=";border-left-width"],[style*="; border-left-width"]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
 
 /*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+<style id="wp-block-button-inline-css">
+.wp-block-button__link{align-content:center;box-sizing:border-box;cursor:pointer;display:inline-block;height:100%;text-align:center;word-break:break-word}.wp-block-button__link.aligncenter{text-align:center}.wp-block-button__link.alignright{text-align:right}:where(.wp-block-button__link){border-radius:9999px;box-shadow:none;padding:calc(.667em + 2px) calc(1.333em + 2px);text-decoration:none}.wp-block-button[style*=text-decoration] .wp-block-button__link{text-decoration:inherit}.wp-block-buttons>.wp-block-button.has-custom-width{max-width:none}.wp-block-buttons>.wp-block-button.has-custom-width .wp-block-button__link{width:100%}.wp-block-buttons>.wp-block-button.has-custom-font-size .wp-block-button__link{font-size:inherit}.wp-block-buttons>.wp-block-button[class*=wp-block-button__width]{width:calc(var(--wp--block-button--width)*1% - var(--wp--style--block-gap, .5em)*(1 - var(--wp--block-button--width)/100))}.wp-block-buttons>.wp-block-button.wp-block-button__width-25{width:calc(25% - var(--wp--style--block-gap, .5em)*.75)}.wp-block-buttons>.wp-block-button.wp-block-button__width-50{width:calc(50% - var(--wp--style--block-gap, .5em)*.5)}.wp-block-buttons>.wp-block-button.wp-block-button__width-75{width:calc(75% - var(--wp--style--block-gap, .5em)*.25)}.wp-block-buttons>.wp-block-button.wp-block-button__width-100{flex-basis:100%;width:100%}.wp-block-buttons.is-vertical>.wp-block-button[class*=wp-block-button__width]{width:calc(var(--wp--block-button--width)*1%)}.wp-block-buttons.is-vertical>.wp-block-button.wp-block-button__width-25{width:25%}.wp-block-buttons.is-vertical>.wp-block-button.wp-block-button__width-50{width:50%}.wp-block-buttons.is-vertical>.wp-block-button.wp-block-button__width-75{width:75%}.wp-block-button.is-style-squared,.wp-block-button__link.wp-block-button.is-style-squared{border-radius:0}.wp-block-button.no-border-radius,.wp-block-button__link.no-border-radius{border-radius:0!important}:root :where(.wp-block-button .wp-block-button__link.is-style-outline),:root :where(.wp-block-button.is-style-outline>.wp-block-button__link){border:2px solid;padding:.667em 1.333em}:root :where(.wp-block-button .wp-block-button__link.is-style-outline:not(.has-text-color)),:root :where(.wp-block-button.is-style-outline>.wp-block-button__link:not(.has-text-color)){color:currentColor}:root :where(.wp-block-button .wp-block-button__link.is-style-outline:not(.has-background)),:root :where(.wp-block-button.is-style-outline>.wp-block-button__link:not(.has-background)){background-color:transparent;background-image:none}
+/*# sourceURL=https://free-psychic-consultation.com/wp-includes/blocks/button/style.min.css */
+</style>
+<style id="wp-block-heading-inline-css">
+h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-background,h3:where(.wp-block-heading).has-background,h4:where(.wp-block-heading).has-background,h5:where(.wp-block-heading).has-background,h6:where(.wp-block-heading).has-background{padding:1.25em 2.375em}h1.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h1.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h2.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h2.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h3.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h3.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h4.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h4.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h5.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h5.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h6.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h6.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]){rotate:180deg}
+/*# sourceURL=https://free-psychic-consultation.com/wp-includes/blocks/heading/style.min.css */
+</style>
+<style id="wp-block-list-inline-css">
+ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:1.25em 2.375em}
+/*# sourceURL=https://free-psychic-consultation.com/wp-includes/blocks/list/style.min.css */
+</style>
+<style id="wp-block-paragraph-inline-css">
+.is-small-text{font-size:.875em}.is-regular-text{font-size:1em}.is-large-text{font-size:2.25em}.is-larger-text{font-size:3em}.has-drop-cap:not(:focus):first-letter{float:left;font-size:8.4em;font-style:normal;font-weight:100;line-height:.68;margin:.05em .1em 0 0;text-transform:uppercase}body.rtl .has-drop-cap:not(:focus):first-letter{float:none;margin-left:.1em}p.has-drop-cap.has-background{overflow:hidden}:root :where(p.has-background){padding:1.25em 2.375em}:where(p.has-text-color:not(.has-link-color)) a{color:inherit}p.has-text-align-left[style*="writing-mode:vertical-lr"],p.has-text-align-right[style*="writing-mode:vertical-rl"]{rotate:180deg}
+/*# sourceURL=https://free-psychic-consultation.com/wp-includes/blocks/paragraph/style.min.css */
+</style>
+<style id="wp-block-buttons-inline-css">
+.wp-block-buttons{box-sizing:border-box}.wp-block-buttons.is-vertical{flex-direction:column}.wp-block-buttons.is-vertical>.wp-block-button:last-child{margin-bottom:0}.wp-block-buttons>.wp-block-button{display:inline-block;margin:0}.wp-block-buttons.is-content-justification-left{justify-content:flex-start}.wp-block-buttons.is-content-justification-left.is-vertical{align-items:flex-start}.wp-block-buttons.is-content-justification-center{justify-content:center}.wp-block-buttons.is-content-justification-center.is-vertical{align-items:center}.wp-block-buttons.is-content-justification-right{justify-content:flex-end}.wp-block-buttons.is-content-justification-right.is-vertical{align-items:flex-end}.wp-block-buttons.is-content-justification-space-between{justify-content:space-between}.wp-block-buttons.aligncenter{text-align:center}.wp-block-buttons:not(.is-content-justification-space-between,.is-content-justification-right,.is-content-justification-left,.is-content-justification-center) .wp-block-button.aligncenter{margin-left:auto;margin-right:auto;width:100%}.wp-block-buttons[style*=text-decoration] .wp-block-button,.wp-block-buttons[style*=text-decoration] .wp-block-button__link{text-decoration:inherit}.wp-block-buttons.has-custom-font-size .wp-block-button__link{font-size:inherit}.wp-block-buttons .wp-block-button__link{width:100%}.wp-block-button.aligncenter{text-align:center}
+/*# sourceURL=https://free-psychic-consultation.com/wp-includes/blocks/buttons/style.min.css */
+</style>
+<style id="wp-block-columns-inline-css">
+.wp-block-columns{box-sizing:border-box;display:flex;flex-wrap:wrap!important}@media (min-width:782px){.wp-block-columns{flex-wrap:nowrap!important}}.wp-block-columns{align-items:normal!important}.wp-block-columns.are-vertically-aligned-top{align-items:flex-start}.wp-block-columns.are-vertically-aligned-center{align-items:center}.wp-block-columns.are-vertically-aligned-bottom{align-items:flex-end}@media (max-width:781px){.wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column{flex-basis:100%!important}}@media (min-width:782px){.wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column{flex-basis:0;flex-grow:1}.wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column[style*=flex-basis]{flex-grow:0}}.wp-block-columns.is-not-stacked-on-mobile{flex-wrap:nowrap!important}.wp-block-columns.is-not-stacked-on-mobile>.wp-block-column{flex-basis:0;flex-grow:1}.wp-block-columns.is-not-stacked-on-mobile>.wp-block-column[style*=flex-basis]{flex-grow:0}:where(.wp-block-columns){margin-bottom:1.75em}:where(.wp-block-columns.has-background){padding:1.25em 2.375em}.wp-block-column{flex-grow:1;min-width:0;overflow-wrap:break-word;word-break:break-word}.wp-block-column.is-vertically-aligned-top{align-self:flex-start}.wp-block-column.is-vertically-aligned-center{align-self:center}.wp-block-column.is-vertically-aligned-bottom{align-self:flex-end}.wp-block-column.is-vertically-aligned-stretch{align-self:stretch}.wp-block-column.is-vertically-aligned-bottom,.wp-block-column.is-vertically-aligned-center,.wp-block-column.is-vertically-aligned-top{width:100%}
+/*# sourceURL=https://free-psychic-consultation.com/wp-includes/blocks/columns/style.min.css */
+</style>
+<style id="wp-block-group-inline-css">
+.wp-block-group{box-sizing:border-box}:where(.wp-block-group.wp-block-group-is-layout-constrained){position:relative}
+/*# sourceURL=https://free-psychic-consultation.com/wp-includes/blocks/group/style.min.css */
 </style>
 <style id="classic-theme-styles-inline-css">
 /*! This file is auto-generated */
 .wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
 /*# sourceURL=/wp-includes/css/classic-themes.min.css */
 </style>
-
 <style id="global-styles-inline-css">
-:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
 /*# sourceURL=global-styles-inline-css */
 </style>
-
-<link rel='stylesheet' id='fpc-landing-style-css' href='https://free-psychic-consultation.com/wp-content/themes/fpc-landing/style.css?ver=1.0.0' media='all' />
-<meta name="generator" content="WordPress 7.0.2" />
-<link rel="icon" href="https://free-psychic-consultation.com/wp-content/uploads/2026/03/site_9_favicon-150x150.png" sizes="32x32" />
-<link rel="icon" href="https://free-psychic-consultation.com/wp-content/uploads/2026/03/site_9_favicon-300x300.png" sizes="192x192" />
-<link rel="apple-touch-icon" href="https://free-psychic-consultation.com/wp-content/uploads/2026/03/site_9_favicon-300x300.png" />
-<meta name="msapplication-TileImage" content="https://free-psychic-consultation.com/wp-content/uploads/2026/03/site_9_favicon-300x300.png" />
+<link href="https://free-psychic-consultation.com/wp-content/themes/fpc-landing/style.css?ver=1.0.0" id="fpc-landing-style-css" media="all" rel="stylesheet">
+<meta content="WordPress 7.1" name="generator"/>
+<link href="https://free-psychic-consultation.com/wp-content/uploads/2026/03/site_9_favicon-150x150.png" rel="icon" sizes="32x32">
+<link href="https://free-psychic-consultation.com/wp-content/uploads/2026/03/site_9_favicon-300x300.png" rel="icon" sizes="192x192"/>
+<link href="https://free-psychic-consultation.com/wp-content/uploads/2026/03/site_9_favicon-300x300.png" rel="apple-touch-icon"/>
+<meta content="https://free-psychic-consultation.com/wp-content/uploads/2026/03/site_9_favicon-300x300.png" name="msapplication-TileImage"/>
 <style id="wp-custom-css">
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
@@ -552,516 +402,696 @@ h2 em{font-style:italic;color:var(--accent-deep)}
 }
 
 </style>
+<style id="core-block-supports-inline-css">
+.wp-container-core-columns-is-layout-8f761849{flex-wrap:nowrap;}
+/*# sourceURL=core-block-supports-inline-css */
+</style>
+<!-- i18n hreflang (WP-Net-Control) -->
+<link href="https://free-psychic-consultation.com/" hreflang="en" rel="alternate"/>
+<link href="https://de.free-psychic-consultation.com/" hreflang="de" rel="alternate"/>
+<link href="https://free-psychic-consultation.com/" hreflang="x-default" rel="alternate"/>
 </head>
-
 <body class="home wp-singular page-template-default page page-id-14 wp-embed-responsive wp-theme-fpc-landing landing-page">
-
-<div id="root"></div>
-
-
-
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-
-<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
-
-
-
-<script type="text/babel">
-
-const { useState } = React;
-
-
-
-const PSYCHICS = [
-
-  { name:"Elena Marsh", spec:"Love & Relationships", rating:"4.9", reads:"2,840", photo:"https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=500&q=85" },
-
-  { name:"Ruth Callahan", spec:"Mediumship & Grief", rating:"4.9", reads:"3,120", photo:"https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=500&q=85" },
-
-  { name:"Nova Bennett", spec:"Tarot · Intuitive", rating:"4.8", reads:"1,760", photo:"https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&q=85" },
-
-  { name:"Priya Shah", spec:"Vedic Astrology", rating:"4.9", reads:"2,210", photo:"https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=500&q=85" },
-
-];
-
-
-
-const FAQ = [
-
-  { q:"What's actually free?", a:"Your first five minutes with any practitioner on the platform. No card required, no hidden trial — you can end the session at five minutes and pay nothing." },
-
-  { q:"Do I need to sign up?", a:"Only an email so we can match you and send a summary. We don't share it. Deleting your account wipes every record." },
-
-  { q:"What if I don't feel a connection?", a:"Leave. No questions asked. If you've already spent more than five minutes, our team reviews and refunds when the session wasn't a fit." },
-
-  { q:"Are the practitioners actually vetted?", a:"Yes — we reject roughly 96% of applicants. Every practitioner is interviewed, background-checked, and test-read by our editorial team before joining." },
-
-  { q:"How does pricing work after the free window?", a:"You see the per-minute rate before the call and the running total during it. No surprises, no auto-renew, no minimums beyond the session itself." },
-
-];
-
-
-
-function App() {
-
-  const [openFaq, setOpenFaq] = useState(0);
-
-  return (
-
-    <>
-
-      <header className="header">
-
-        <div className="container header-inner">
-
-          <div className="logo"><span className="logo-mark"/>First Light</div>
-
-          <nav className="nav">
-
-            <a>How it works</a><a>Practitioners</a><a>Pricing</a><a>Reviews</a>
-
-          </nav>
-
-          <button className="btn btn-ghost" style={{height:40,padding:"0 20px"}}>Sign in</button>
-
-        </div>
-
-      </header>
-
-
-
-      <section className="hero">
-
-        <div className="container hero-inner">
-
-          <div>
-
-            <span className="eyebrow"><span className="dot"/>12 practitioners available now</span>
-
-            <h1>Your first five minutes<br/><em>are on us.</em></h1>
-
-            <p className="hero-lede">Talk to a vetted psychic today — at no cost for the first session. End anytime. No card required. If it's not right, you pay nothing.</p>
-
-            <div className="hero-ctas">
-
-              <button className="btn btn-primary">Start free consultation
-
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-
-              </button>
-
-              <button className="btn btn-ghost">Browse practitioners</button>
-
-            </div>
-
-            <div className="hero-trust">
-
-              <div className="hero-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M20 6L9 17l-5-5"/></svg><span><strong>No card</strong> required</span></div>
-
-              <div className="hero-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M20 6L9 17l-5-5"/></svg><span><strong>End anytime</strong> — no charge</span></div>
-
-              <div className="hero-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M20 6L9 17l-5-5"/></svg><span><strong>Anonymous</strong> by default</span></div>
-
-            </div>
-
-          </div>
-
-          <div className="hero-visual">
-
-            <div className="hv-card hv-card-1"><span className="pulse"/><span>Elena is available · 2m wait</span></div>
-
-            <div className="hv-card hv-card-2">
-
-              <div className="name">Elena Marsh</div>
-
-              <div className="meta">Love & Relationships · 19 years · 4.9 ★</div>
-
-            </div>
-
-            <div className="hv-card hv-card-3">
-
-              <div>
-
-                <div className="mono">First 5 min</div>
-
-                <div className="big">Free</div>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-
-      <div className="trust-strip">
-
-        <div className="container trust-strip-inner">
-
-          <div className="trust-badge"><span>Trusted by</span><strong>147,000+</strong><span>first-time callers</span></div>
-
-          <div className="trust-badge"><span>Avg rating</span><strong>4.88 / 5</strong><span>across 38k reviews</span></div>
-
-          <div className="trust-badge"><span>Practitioners</span><strong>4% acceptance</strong><span>from applicants</span></div>
-
-          <div className="trust-badge"><span>Refund policy</span><strong>100%</strong><span>honored, no questions</span></div>
-
-        </div>
-
-      </div>
-
-
-
-      <section>
-
-        <div className="container">
-
-          <div className="offer">
-
-            <div>
-
-              <div className="section-eyebrow" style={{color:"var(--warm)"}}><span style={{background:"var(--warm)",width:32,height:1,display:"inline-block"}}></span>The offer, in plain words</div>
-
-              <h2>Five free minutes.<br/><em>No strings.</em></h2>
-
-              <p className="offer-lede">Pick any practitioner. Start the conversation. If at five minutes it's not landing, hang up — nothing leaves your wallet. If it is, keep going at their posted rate.</p>
-
-              <ul className="offer-list">
-
-                <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"><path d="M20 6L9 17l-5-5"/></svg>No card, no deposit, no trial signup</li>
-
-                <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"><path d="M20 6L9 17l-5-5"/></svg>A clear running-cost meter once the free window ends</li>
-
-                <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"><path d="M20 6L9 17l-5-5"/></svg>Every session is encrypted and can be deleted on request</li>
-
-                <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"><path d="M20 6L9 17l-5-5"/></svg>Refund if a practitioner wasn't the right fit</li>
-
-              </ul>
-
-              <button className="btn btn-light">Claim your free five minutes →</button>
-
-            </div>
-
-            <div className="offer-counter">
-
-              <div className="counter-label">Free sessions today</div>
-
-              <div className="counter-big">384 / 600</div>
-
-              <div className="counter-sub">Daily cap keeps quality high</div>
-
-              <div className="counter-bar"><div className="counter-bar-fill"/></div>
-
-              <div className="counter-meta">216 remaining · resets at midnight</div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-
-      <section>
-
-        <div className="container">
-
-          <div className="section-head">
-
-            <div className="section-eyebrow">How it works</div>
-
-            <h2>Three small steps.<br/><em>No theater.</em></h2>
-
-            <p className="section-lede">We've kept the whole flow quiet on purpose. Starting a reading shouldn't feel like signing a lease.</p>
-
-          </div>
-
-          <div className="steps">
-
-            <div className="step">
-
-              <div className="step-num"></div>
-
-              <div className="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
-
-              <h3>Find someone who fits</h3>
-
-              <p>Browse by specialty, or take the two-minute Inner Compass test. We'll match you to two practitioners whose style aligns with what you're carrying.</p>
-
-            </div>
-
-            <div className="step">
-
-              <div className="step-num"></div>
-
-              <div className="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-
-              <h3>Start the conversation</h3>
-
-              <p>Voice or written chat, your choice. A clear timer shows your free minutes remaining, and your running cost if you continue beyond.</p>
-
-            </div>
-
-            <div className="step">
-
-              <div className="step-num"></div>
-
-              <div className="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></div>
-
-              <h3>Keep going — or don't</h3>
-
-              <p>At five minutes, you decide. End the call (pay nothing), or continue at the practitioner's posted rate. No pressure either way.</p>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-
-      <section style={{background:"var(--bg-card)"}}>
-
-        <div className="container">
-
-          <div className="section-head">
-
-            <div className="section-eyebrow">Who you'll be talking to</div>
-
-            <h2>Practitioners available <em>today.</em></h2>
-
-            <p className="section-lede">Each has been vetted, tested, and interviewed. We accept fewer than four in a hundred applicants.</p>
-
-          </div>
-
-          <div className="psychics-grid">
-
-            {PSYCHICS.map(p => (
-
-              <div key={p.name} className="psychic">
-
-                <div className="psychic-photo" style={{backgroundImage:`url(${p.photo})`}}>
-
-                  <div className="psychic-status"><span className="dot"/>Available</div>
-
-                </div>
-
-                <div className="psychic-body">
-
-                  <div className="psychic-name">{p.name}</div>
-
-                  <div className="psychic-spec">{p.spec}</div>
-
-                  <div className="psychic-stats">
-
-                    <span>Rating<strong>★ {p.rating}</strong></span>
-
-                    <span>Readings<strong>{p.reads}</strong></span>
-
-                  </div>
-
-                </div>
-
-              </div>
-
-            ))}
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-
-      <section>
-
-        <div className="container">
-
-          <div className="testimonial-wrap">
-
-            <div className="testimonial">
-
-              <div className="section-eyebrow">What people say</div>
-
-              <blockquote>"I'd never done this before and was honestly skeptical. The five free minutes turned into an hour. It was the first time someone really <em>listened</em> — and said something useful back."</blockquote>
-
-              <div className="testimonial-attr">
-
-                <div className="t-photo"/>
-
-                <div>
-
-                  <div className="t-name">Maren K., first reading</div>
-
-                  <div className="t-meta">Session with Ruth Callahan · 72 minutes</div>
-
-                </div>
-
-              </div>
-
-            </div>
-
-            <div className="testimonial-stats">
-
-              <div className="stat-card">
-
-                <div className="stat-val">94<em>%</em></div>
-
-                <div className="stat-label">of first-timers continue past the free window</div>
-
-              </div>
-
-              <div className="stat-card">
-
-                <div className="stat-val">4.88</div>
-
-                <div className="stat-label">avg. rating across 38,000+ reviews</div>
-
-              </div>
-
-              <div className="stat-card">
-
-                <div className="stat-val"><em>38k</em></div>
-
-                <div className="stat-label">reviews read by real editors, not bots</div>
-
-              </div>
-
-              <div className="stat-card">
-
-                <div className="stat-val">&lt;2m</div>
-
-                <div className="stat-label">typical wait to start a session</div>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-
-      <section>
-
-        <div className="container">
-
-          <div className="faq-grid">
-
-            <div>
-
-              <div className="section-eyebrow">Straight answers</div>
-
-              <h2>Before you start, <em>a few things.</em></h2>
-
-              <p className="section-lede" style={{marginTop:16}}>If there's something not covered here, our team answers within a few hours.</p>
-
-            </div>
-
-            <div className="faq-list">
-
-              {FAQ.map((f,i) => (
-
-                <div key={i} className={"faq-item" + (openFaq === i ? " open" : "")}>
-
-                  <button className="faq-q" onClick={() => setOpenFaq(openFaq === i ? -1 : i)}>
-
-                    {f.q}
-
-                    <span className="faq-icon">+</span>
-
-                  </button>
-
-                  <div className="faq-a">{f.a}</div>
-
-                </div>
-
-              ))}
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-
-      <section className="final">
-
-        <div className="container">
-
-          <div className="section-eyebrow" style={{justifyContent:"center",display:"inline-flex"}}>Ready when you are</div>
-
-          <h2>Your first five minutes<br/>are <em>already waiting.</em></h2>
-
-          <p className="final-lede">No card. No catch. End the call anytime — you pay nothing if it's not the right fit.</p>
-
-          <div className="final-ctas">
-
-            <button className="btn btn-primary">Start my free consultation
-
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-
-            </button>
-
-            <button className="btn btn-ghost">Take the 2-min test first</button>
-
-          </div>
-
-          <div className="final-foot">216 free sessions remaining today · resets at midnight</div>
-
-        </div>
-
-      </section>
-
-
-
-      <footer className="footer container">
-
-        <span>© 2026 First Light · A free trial by Clairo</span>
-
-        <span>Privacy · Terms · Practitioner code of conduct</span>
-
-      </footer>
-
-    </>
-
-  );
-
+<div id="root">
+<header class="header">
+<div class="container header-inner">
+<div class="logo"><span class="logo-mark"></span>First Light</div>
+<nav class="nav">
+<a href="#how-it-works">How it works</a><a href="#practitioners">Practitioners</a><a href="#pricing">Pricing</a><a href="#reviews">Reviews</a>
+</nav>
+<a class="btn btn-ghost" data-nebula-cta="1" href="/go/" rel="nofollow sponsored" style="height:40px;padding:0 20px">Sign in</a>
+</div>
+</header>
+<section class="hero">
+<div class="container hero-inner">
+<div>
+<span class="eyebrow"><span class="dot"></span>Practitioners available now</span>
+<h1>Your first five minutes<br/><em>are on us.</em></h1>
+<p class="hero-lede">Talk to a vetted psychic today, at no cost for the first session. End anytime. No card required. If it's not right, you pay nothing.</p>
+<div class="hero-ctas">
+<a class="btn btn-primary" data-nebula-cta="1" href="/go/" rel="nofollow sponsored">Start free consultation
+          <svg fill="none" height="16" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="16"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+</a>
+<a class="btn btn-ghost" data-nebula-cta="1" href="/go/" rel="nofollow sponsored">Browse practitioners</a>
+</div>
+<div class="hero-trust">
+<div class="hero-trust-item"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span><strong>No card</strong> required</span></div>
+<div class="hero-trust-item"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span><strong>End anytime</strong>, no charge</span></div>
+<div class="hero-trust-item"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span><strong>Anonymous</strong> by default</span></div>
+</div>
+</div>
+<div class="hero-visual">
+<div class="hv-card hv-card-1"><span class="pulse"></span><span>Elena is available · Short wait</span></div>
+<div class="hv-card hv-card-2">
+<div class="name">Elena Marsh</div>
+<div class="meta">Love &amp; Relationships</div>
+</div>
+<div class="hv-card hv-card-3">
+<div>
+<div class="mono">First 5 min</div>
+<div class="big">Free</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="trust-strip">
+<div class="container trust-strip-inner">
+<div class="trust-badge"><span>First session</span><strong>Free</strong><span>for every new caller</span></div>
+<div class="trust-badge"><span>Practitioners</span><strong>Vetted</strong><span>interviewed and tested</span></div>
+<div class="trust-badge"><span>Acceptance</span><strong>Selective</strong><span>most applicants declined</span></div>
+<div class="trust-badge"><span>Refund</span><strong>Honored</strong><span>if it wasn't the right fit</span></div>
+</div>
+</div>
+<section>
+<div class="container">
+<div class="offer">
+<div>
+<div class="section-eyebrow" style="color:var(--warm)"><span style="background:var(--warm);width:32px;height:1px;display:inline-block"></span>The offer, in plain words</div>
+<h2>Five free minutes.<br/><em>No strings.</em></h2>
+<p class="offer-lede">Pick any practitioner. Start the conversation. If at five minutes it's not landing, hang up, nothing leaves your wallet. If it is, keep going at their posted rate.</p>
+<ul class="offer-list">
+<li><svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-width="2.2" viewbox="0 0 24 24" width="18"><path d="M20 6L9 17l-5-5"></path></svg>No card, no deposit, no trial signup</li>
+<li><svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-width="2.2" viewbox="0 0 24 24" width="18"><path d="M20 6L9 17l-5-5"></path></svg>A clear running-cost meter once the free window ends</li>
+<li><svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-width="2.2" viewbox="0 0 24 24" width="18"><path d="M20 6L9 17l-5-5"></path></svg>Every session is encrypted and can be deleted on request</li>
+<li><svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-width="2.2" viewbox="0 0 24 24" width="18"><path d="M20 6L9 17l-5-5"></path></svg>Refund if a practitioner wasn't the right fit</li>
+</ul>
+<a class="btn btn-light" data-nebula-cta="1" href="/go/" rel="nofollow sponsored">Claim your free five minutes →</a>
+</div>
+<div class="offer-counter">
+<div class="counter-label">Free sessions today</div>
+<div class="counter-big">5 min</div>
+<div class="counter-sub">Free with every practitioner</div>
+</div>
+</div>
+</div>
+</section>
+<section id="how-it-works">
+<div class="container">
+<div class="section-head">
+<div class="section-eyebrow">How it works</div>
+<h2>Three small steps.<br/><em>No theater.</em></h2>
+<p class="section-lede">We've kept the whole flow quiet on purpose. Starting a reading shouldn't feel like signing a lease.</p>
+</div>
+<div class="steps">
+<div class="step">
+<div class="step-num"></div>
+<div class="step-icon"><svg fill="none" stroke="currentColor" viewbox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg></div>
+<h3>Find someone who fits</h3>
+<p>Browse by specialty, or take the two-minute Inner Compass test. We'll match you to two practitioners whose style aligns with what you're carrying.</p>
+</div>
+<div class="step">
+<div class="step-num"></div>
+<div class="step-icon"><svg fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></div>
+<h3>Start the conversation</h3>
+<p>Voice or written chat, your choice. A clear timer shows your free minutes remaining, and your running cost if you continue beyond.</p>
+</div>
+<div class="step">
+<div class="step-num"></div>
+<div class="step-icon"><svg fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 12l2 2 4-4"></path><circle cx="12" cy="12" r="9"></circle></svg></div>
+<h3>Keep going, or don't</h3>
+<p>At five minutes, you decide. End the call (pay nothing), or continue at the practitioner's posted rate. No pressure either way.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="practitioners" style="background:var(--bg-card)">
+<div class="container">
+<div class="section-head">
+<div class="section-eyebrow">Who you'll be talking to</div>
+<h2>Practitioners available <em>today.</em></h2>
+<p class="section-lede">Each has been vetted, tested, and interviewed. We accept only a small share of applicants.</p>
+</div>
+<div class="psychics-grid">
+<div class="psychic">
+<div class="psychic-photo" style="background-image:url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=500&amp;q=85')">
+<div class="psychic-status"><span class="dot"></span>Available</div>
+</div>
+<div class="psychic-body">
+<div class="psychic-name">Elena Marsh</div>
+<div class="psychic-spec">Love &amp; Relationships</div>
+</div>
+</div>
+<div class="psychic">
+<div class="psychic-photo" style="background-image:url('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=500&amp;q=85')">
+<div class="psychic-status"><span class="dot"></span>Available</div>
+</div>
+<div class="psychic-body">
+<div class="psychic-name">Ruth Callahan</div>
+<div class="psychic-spec">Mediumship &amp; Grief</div>
+</div>
+</div>
+<div class="psychic">
+<div class="psychic-photo" style="background-image:url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&amp;q=85')">
+<div class="psychic-status"><span class="dot"></span>Available</div>
+</div>
+<div class="psychic-body">
+<div class="psychic-name">Nova Bennett</div>
+<div class="psychic-spec">Tarot · Intuitive</div>
+</div>
+</div>
+<div class="psychic">
+<div class="psychic-photo" style="background-image:url('https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=500&amp;q=85')">
+<div class="psychic-status"><span class="dot"></span>Available</div>
+</div>
+<div class="psychic-body">
+<div class="psychic-name">Priya Shah</div>
+<div class="psychic-spec">Vedic Astrology</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="reviews">
+<div class="container">
+<div class="testimonial-wrap">
+<div class="testimonial">
+<div class="section-eyebrow">What people say</div>
+<blockquote>“I'd never done this before and was honestly skeptical. The five free minutes turned into an hour. It was the first time someone really <em>listened</em>, and said something useful back.”</blockquote>
+<div class="testimonial-attr">
+<div class="t-photo"></div>
+<div>
+<div class="t-name">Maren K., first reading</div>
+<div class="t-meta">Session with Ruth Callahan · well over an hour</div>
+</div>
+</div>
+</div>
+<div class="testimonial-stats">
+<div class="stat-card">
+<div class="stat-val">Free</div>
+<div class="stat-label">first five minutes with every practitioner</div>
+</div>
+<div class="stat-card">
+<div class="stat-val">Vetted</div>
+<div class="stat-label">each practitioner interviewed and tested</div>
+</div>
+<div class="stat-card">
+<div class="stat-val">Voice <em>or</em> chat</div>
+<div class="stat-label">choose the format that's comfortable</div>
+</div>
+<div class="stat-card">
+<div class="stat-val">No card</div>
+<div class="stat-label">required to start a session</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="pricing">
+<div class="container">
+<div class="faq-grid">
+<div>
+<div class="section-eyebrow">Straight answers</div>
+<h2>Before you start, <em>a few things.</em></h2>
+<p class="section-lede" style="margin-top:16px">If there's something not covered here, our team answers within a few hours.</p>
+</div>
+<div class="faq-list">
+<details class="faq-item" open="">
+<summary class="faq-q">
+            What's actually free?            <span class="faq-icon">+</span>
+</summary>
+<div class="faq-a">Your first five minutes with any practitioner on the platform. No card required, no hidden trial, you can end the session at five minutes and pay nothing.</div>
+</details>
+<details class="faq-item">
+<summary class="faq-q">
+            Do I need to sign up?            <span class="faq-icon">+</span>
+</summary>
+<div class="faq-a">Only an email so we can match you and send a summary. We don't share it. Deleting your account wipes every record.</div>
+</details>
+<details class="faq-item">
+<summary class="faq-q">
+            What if I don't feel a connection?            <span class="faq-icon">+</span>
+</summary>
+<div class="faq-a">Leave. No questions asked. If you've already spent more than five minutes, our team reviews and refunds when the session wasn't a fit.</div>
+</details>
+<details class="faq-item">
+<summary class="faq-q">
+            Are the practitioners actually vetted?            <span class="faq-icon">+</span>
+</summary>
+<div class="faq-a">Yes, we reject the large majority of applicants. Every practitioner is interviewed, background-checked, and test-read by our editorial team before joining.</div>
+</details>
+<details class="faq-item">
+<summary class="faq-q">
+            How does pricing work after the free window?            <span class="faq-icon">+</span>
+</summary>
+<div class="faq-a">You see the per-minute rate before the call and the running total during it. No surprises, no auto-renew, no minimums beyond the session itself.</div>
+</details>
+</div>
+</div>
+</div>
+</section>
+<section class="final">
+<div class="container">
+<div class="section-eyebrow" style="justify-content:center;display:inline-flex">Ready when you are</div>
+<h2>Your first five minutes<br/>are <em>already waiting.</em></h2>
+<p class="final-lede">No card. No catch. End the call anytime, you pay nothing if it's not the right fit.</p>
+<div class="final-ctas">
+<a class="btn btn-primary" data-nebula-cta="1" href="/go/" rel="nofollow sponsored">Start my free consultation
+        <svg fill="none" height="16" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="16"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+</a>
+<a class="btn btn-ghost" data-nebula-cta="1" href="/go/" rel="nofollow sponsored">Take the 2-min test first</a>
+</div>
+<div class="final-foot">First five minutes free, every time</div>
+</div>
+</section>
+<footer class="footer container">
+<span>© 2026 First Light · A free trial by Clairo</span>
+<span>Privacy · Terms · Practitioner code of conduct</span>
+<!-- i18n switcher (WP-Net-Control) --><div class="lang-switcher" style="text-align:center;padding:12px 0;font-size:14px;opacity:.85">🌐 <strong style="color:inherit">EN</strong> · <a href="https://de.free-psychic-consultation.com/" style="color:inherit;text-decoration:underline">DE</a></div></footer>
+</div>
+<style id="homeblocks-css">
+/* tools/homeblocks/homeblocks.css
+ * Single stylesheet for all 20 homeblocks sites. Inlined once (in a <style>
+ * tag) by inc/homeblocks.php — never enqueued as a static asset, so it
+ * survives a Simply Static export with zero asset-path risk.
+ *
+ * Everything is scoped under .hb-scope so it can never collide with a
+ * theme's own styles: no bare element selectors, no global resets here.
+ *
+ * Color/spacing tokens cascade through each theme's own CSS custom
+ * properties first (--hb-accent, then a theme's own --accent /
+ * --color-accent / --primary, ...) and fall back to a sane default only
+ * when none of those exist.
+ */
+
+.hb-scope {
+  --hbc-accent:  var(--hb-accent,  var(--accent,       var(--color-accent, var(--primary,   #6d4aff))));
+  --hbc-text:    var(--hb-text,    var(--text,          var(--color-text,   var(--ink,        #1c1e26))));
+  --hbc-muted:   var(--hb-muted,   var(--muted,         var(--color-muted,  var(--ink-3,      #6b7280))));
+  --hbc-surface: var(--hb-surface, var(--surface,       var(--color-surface,var(--bg-soft,    #f4f5f8))));
+  --hbc-border:  var(--hb-border,  var(--border,        var(--color-border, var(--line,       #e2e4ea))));
+  --hbc-good:    var(--hb-good,    #2f8f4e);
+  --hbc-avoid:   #9aa0ab;
+
+  display: block;
+  color: var(--hbc-text);
+  font-size: 1rem;
+  line-height: 1.65;
 }
 
-ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+.hb-scope * { box-sizing: border-box; }
 
-</script>
+/* ── Section rhythm ─────────────────────────────────────────── */
 
-<script type="speculationrules">
+.hb-scope > .wp-block-group {
+  max-width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: clamp(2.5rem, 5vw, 4.5rem) 1.25rem;
+}
+
+.hb-scope > .wp-block-group + .wp-block-group {
+  border-top: 1px solid var(--hbc-border);
+}
+
+.hb-scope h2.wp-block-heading { font-size: clamp(1.5rem, 2.5vw, 2rem); margin: 0 0 1rem; }
+.hb-scope h3.wp-block-heading { font-size: clamp(1.1rem, 1.8vw, 1.35rem); margin: 1.5rem 0 0.5rem; }
+.hb-scope p { margin: 0 0 1rem; }
+.hb-scope .hb-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--hbc-accent);
+  margin-bottom: 0.5rem;
+}
+
+/* ── Hero ────────────────────────────────────────────────────── */
+
+.hb-hero h1.wp-block-heading,
+.hb-hero h2.wp-block-heading { font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.15; }
+
+/* ── Cards (also reused visually by .hb-card columns) ───────── */
+
+.hb-cards .wp-block-columns { gap: 1.5rem; }
+.hb-card {
+  background: var(--hbc-surface);
+  border: 1px solid var(--hbc-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+.hb-card h3.wp-block-heading { margin-top: 0; }
+
+/* ── Steps ───────────────────────────────────────────────────── */
+
+.hb-steps h3.wp-block-heading {
+  color: var(--hbc-accent);
+  border-left: 3px solid var(--hbc-accent);
+  padding-left: 0.75rem;
+}
+
+/* ── Topic: good / avoid lists via ::marker, no icon files ──── */
+
+.hb-topic-label { font-weight: 600; margin-bottom: 0.35rem; }
+.hb-good-label { color: var(--hbc-good); }
+.hb-avoid-label { color: var(--hbc-avoid); }
+.hb-topic ul.hb-good,
+.hb-topic ul.hb-avoid { padding-left: 1.4em; margin: 0 0 1rem; }
+.hb-topic ul.hb-good li::marker { content: "\2713  "; color: var(--hbc-good); }
+.hb-topic ul.hb-avoid li::marker { content: "\2013  "; color: var(--hbc-avoid); }
+.hb-topic .hb-tip {
+  font-size: 0.9rem;
+  color: var(--hbc-muted);
+  font-style: italic;
+}
+
+/* ── FAQ ─────────────────────────────────────────────────────── */
+
+.hb-faq h3.wp-block-heading { margin-top: 1.5rem; }
+.hb-faq h3.wp-block-heading:first-of-type { margin-top: 0.5rem; }
+
+/* ── CTA button ──────────────────────────────────────────────── */
+
+.hb-scope .wp-block-button.hb-cta { margin: 0.75rem 0; }
+.hb-scope a.wp-block-button__link.hb-cta {
+  display: inline-block;
+  background: var(--hbc-accent);
+  color: #fff;
+  border-radius: 8px;
+  padding: 0.7em 1.4em;
+  font-weight: 600;
+  text-decoration: none;
+  transition: filter 0.15s ease, transform 0.15s ease;
+}
+.hb-scope a.wp-block-button__link.hb-cta:hover,
+.hb-scope a.wp-block-button__link.hb-cta:focus-visible {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+
+/* ── Disclaimer ──────────────────────────────────────────────── */
+
+.hb-disclaimer { font-size: 0.85rem; color: var(--hbc-muted); }
+.hb-disclaimer p { margin-bottom: 0.5rem; }
+
+/* ── Responsive: single column under 782px, guard against overflow ── */
+
+@media (max-width: 782px) {
+  .hb-scope > .wp-block-group { padding-left: 1rem; padding-right: 1rem; }
+  .hb-cards .wp-block-columns,
+  .hb-scope .wp-block-columns {
+    flex-wrap: wrap;
+  }
+  .hb-cards .wp-block-columns > .wp-block-column,
+  .hb-scope .wp-block-columns > .wp-block-column {
+    flex-basis: 100% !important;
+    width: 100% !important;
+  }
+}
+
+.hb-scope img { max-width: 100%; height: auto; }
+
+/* ── Reduced motion ──────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .hb-scope a.wp-block-button__link.hb-cta {
+    transition: none;
+  }
+  .hb-scope a.wp-block-button__link.hb-cta:hover,
+  .hb-scope a.wp-block-button__link.hb-cta:focus-visible {
+    transform: none;
+  }
+}
+
+</style>
+<div class="hb-scope">
+<div class="wp-block-group hb-hero" id="hb-hero"><div class="wp-block-group__inner-container is-layout-constrained wp-block-group-is-layout-constrained">
+<h2 class="wp-block-heading">Free Psychic Consultation: Talk Through Your Question With a Real Reader First</h2>
+<p class="wp-block-paragraph">Before you commit to anything, it helps to have an actual conversation. A free psychic consultation gives you the chance to sit down with a reader, describe what’s going on, and receive an honest, considered response, without paying anything up front and without being pressured into a longer session. Consider it a low-stakes way to find out whether this kind of guidance is useful to you, and whether this particular reader is the right fit.</p>
+<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
+<div class="wp-block-button hb-cta"><a class="wp-block-button__link hb-cta" href="/go/" rel="nofollow sponsored">Book Your Free Consultation</a></div>
+</div>
+</div></div>
+<div class="wp-block-group hb-prose" id="hb-why-this-service"><div class="wp-block-group__inner-container is-layout-constrained wp-block-group-is-layout-constrained">
+<p class="wp-block-paragraph">A number of psychic services move you straight into a paid session before you’ve had any real sense of who you’re talking to. We think that approach is backwards. A consultation should come first: a chance to explain your situation, ask a question, and see how a reader responds, before any money changes hands.</p>
+<p class="wp-block-paragraph">That is what this free consultation is built for. You describe what’s on your mind, in as much or as little detail as you’re comfortable with, and a reader responds directly to it. There is no script being read at you, and no pressure to book anything further once the consultation ends.</p>
+<p class="wp-block-paragraph">We would rather you leave with a clear, honest sense of whether this approach fits your situation than feel talked into a longer engagement you’re not sure about. If it turns out to be useful, you will know. If it doesn’t, that is useful information as well.</p>
+<p class="wp-block-paragraph">There is also no expectation that you decide anything on the spot. You are free to take what came up in the consultation, sit with it for a while, and only return if and when it feels right to continue.</p>
+</div></div>
+<div class="wp-block-group hb-cards" id="hb-who-requests"><div class="wp-block-group__inner-container is-layout-constrained wp-block-group-is-layout-constrained">
+<h2 class="wp-block-heading">Who Requests a Free Consultation</h2>
+<p class="wp-block-paragraph">People arrive at this stage for a range of reasons. A few of the more common ones are described below.</p>
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-8f761849 wp-block-columns-is-layout-flex">
+<div class="wp-block-column hb-card is-layout-flow wp-block-column-is-layout-flow">
+<h3 class="wp-block-heading">Someone Weighing Whether to Continue</h3>
+<p class="wp-block-paragraph">A person who has had readings before and wants a calm, unhurried conversation before deciding whether to book a longer session with anyone at all, rather than committing out of habit.</p>
+</div>
+<div class="wp-block-column hb-card is-layout-flow wp-block-column-is-layout-flow">
+<h3 class="wp-block-heading">Someone Facing a Decision Alone</h3>
+<p class="wp-block-paragraph">A person sitting with a choice, a relationship, a move, a career change, who wants an outside, considered perspective before committing either way and would rather not decide in isolation.</p>
+</div>
+<div class="wp-block-column hb-card is-layout-flow wp-block-column-is-layout-flow">
+<h3 class="wp-block-heading">Someone New to This Entirely</h3>
+<p class="wp-block-paragraph">A person who has never spoken with a reader before and wants to understand, without any obligation, what a consultation actually involves before deciding whether it is right for them.</p>
+</div>
+</div>
+</div></div>
+<div class="wp-block-group hb-cards" id="hb-what-to-look-for"><div class="wp-block-group__inner-container is-layout-constrained wp-block-group-is-layout-constrained">
+<h2 class="wp-block-heading">What to Look for in a Consultation</h2>
+<p class="wp-block-paragraph">Not every consultation is conducted the same way. A few qualities are worth paying attention to before you decide whether to continue with a given reader.</p>
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-8f761849 wp-block-columns-is-layout-flex">
+<div class="wp-block-column hb-card is-layout-flow wp-block-column-is-layout-flow">
+<h3 class="wp-block-heading">A Reader Who Listens First</h3>
+<p class="wp-block-paragraph">The consultation should begin with your situation, described in your own words, rather than a generic opening script recited to every visitor.</p>
+<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
+<div class="wp-block-button hb-cta"><a class="wp-block-button__link hb-cta" href="/go/" rel="nofollow sponsored">Request Your Free Consultation</a></div>
+</div>
+</div>
+<div class="wp-block-column hb-card is-layout-flow wp-block-column-is-layout-flow">
+<h3 class="wp-block-heading">Honesty About What’s Uncertain</h3>
+<p class="wp-block-paragraph">A trustworthy reader distinguishes between what feels clear and what remains genuinely uncertain, rather than presenting every impression as settled fact.</p>
+<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
+<div class="wp-block-button hb-cta"><a class="wp-block-button__link hb-cta" href="/go/" rel="nofollow sponsored">Start a Free Consultation</a></div>
+</div>
+</div>
+<div class="wp-block-column hb-card is-layout-flow wp-block-column-is-layout-flow">
+<h3 class="wp-block-heading">No Pressure to Book Further</h3>
+<p class="wp-block-paragraph">A free consultation should stand on its own. If it feels engineered to push you toward a paid session, that is worth noticing and questioning closely.</p>
+<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
+<div class="wp-block-button hb-cta"><a class="wp-block-button__link hb-cta" href="/go/" rel="nofollow sponsored">Talk to a Reader Now</a></div>
+</div>
+</div>
+</div>
+<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
+<div class="wp-block-button hb-cta"><a class="wp-block-button__link hb-cta" href="/go/" rel="nofollow sponsored">Schedule Your Free Consultation</a></div>
+</div>
+</div></div>
+<div class="wp-block-group hb-steps" id="hb-how-it-works"><div class="wp-block-group__inner-container is-layout-constrained wp-block-group-is-layout-constrained">
+<h2 class="wp-block-heading">How a Free Consultation Works</h2>
+<p class="wp-block-paragraph">The process is intentionally simple, and most of the preparation is just deciding what you would like to talk through.</p>
+<p class="wp-block-paragraph">Nothing about it is designed to rush you into a decision before you have had a chance to think it over properly.</p>
+<h3 class="wp-block-heading">1. 1. Describe Your Situation</h3>
+<p class="wp-block-paragraph">Before the consultation begins, you will be asked to describe what’s going on, a relationship, a decision, a period of transition. There is no need to have it perfectly organized. A general description is enough for a reader to begin working with, and you can add detail as the conversation develops rather than front-loading everything at once.</p>
+<h3 class="wp-block-heading">2. 2. Connect With a Reader</h3>
+<p class="wp-block-paragraph">You are paired with a reader suited to your situation. Different readers work through different approaches, from a general clarity session to a more structured chart-based overview, so the tone can vary, though the intent stays consistent: a considered, honest response to what you’ve described, rather than a generic script applied to every visitor.</p>
+<h3 class="wp-block-heading">3. 3. Discuss What Comes Up</h3>
+<p class="wp-block-paragraph">The consultation itself is a conversation, not a monologue. The reader shares what they are noticing and why, and you are able to ask questions or clarify anything that feels unclear before the session ends. You are also free to slow the conversation down at any point if something needs more time.</p>
+<p class="wp-block-paragraph">There is no obligation to book a further session once the consultation is over, and no charge for this first conversation. Some people find what they need in that single conversation. Others choose to continue with a longer session afterward. Both are reasonable outcomes to arrive at.</p>
+<p class="wp-block-paragraph">If the consultation raises more than it resolves, that is a normal result too. A single conversation rarely settles everything at once, and a follow-up session can pick up from wherever this one leaves off.</p>
+</div></div>
+<div class="wp-block-group hb-prose" id="hb-what-to-bring"><div class="wp-block-group__inner-container is-layout-constrained wp-block-group-is-layout-constrained">
+<h2 class="wp-block-heading">What You Can Bring to a Consultation</h2>
+<p class="wp-block-paragraph">You are welcome to bring almost any situation you are genuinely working through, a relationship, a career decision, a period of grief, a choice you cannot quite make on your own. A clearly described situation tends to lead to a more useful conversation than a vague one does.</p>
+<p class="wp-block-paragraph">There are limits worth stating plainly. A psychic consultation is not a substitute for a licensed medical, legal, or financial professional, and no reader affiliated with this service will suggest otherwise. If your situation involves a medical concern, a legal matter, or a significant financial decision, please also consult the relevant professional. A consultation can offer perspective, but it cannot and does not guarantee a specific outcome.</p>
+<p class="wp-block-paragraph">It is also not a substitute for a conversation you are avoiding with another person. A reader can help you prepare for that conversation, but the conversation itself still has to happen on your own terms.</p>
+<p class="wp-block-paragraph">Within that boundary, there is a wide range of situations worth bringing. The following sections describe a few of the most common ones people raise.</p>
+</div></div>
+<div class="wp-block-group hb-topic" id="hb-first-consultation"><div class="wp-block-group__inner-container is-layout-constrained wp-block-group-is-layout-constrained">
+<h3 class="wp-block-heading">What to Bring to Your First Consultation</h3>
+<p class="wp-block-paragraph">If this is your first time requesting a consultation, a little preparation helps, though nothing elaborate is required of you.</p>
+<p class="hb-topic-label hb-good-label wp-block-paragraph">Good to ask</p>
+<ul class="wp-block-list hb-good">
+<li>A short, honest description of the situation you are facing</li>
+<li>What you are hoping to understand better, even if it is not fully formed</li>
+<li>Any relevant timing, a decision deadline, a recent event, an anniversary</li>
+</ul>
+<p class="hb-topic-label hb-avoid-label wp-block-paragraph">Better asked elsewhere</p>
+<ul class="wp-block-list hb-avoid">
+<li>A demand for a specific date or exact outcome</li>
+<li>A request to be told precisely what someone else is thinking</li>
+</ul>
+<p class="hb-tip wp-block-paragraph">If you are unsure where to start, simply describe how the situation currently feels to you, rather than trying to summarize it neatly first. The reader can work from there.</p>
+<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
+<div class="wp-block-button hb-cta"><a class="wp-block-button__link hb-cta" href="/go/" rel="nofollow sponsored">Prepare Your Free Consultation</a></div>
+</div>
+</div></div>
+<div class="wp-block-group hb-topic" id="hb-crossroads"><div class="wp-block-group__inner-container is-layout-constrained wp-block-group-is-layout-constrained">
+<h3 class="wp-block-heading">Standing at a Crossroads</h3>
+<p class="wp-block-paragraph">Some consultations happen at a genuine decision point, two paths, and no clear way to know which one is right for you.</p>
+<p class="hb-topic-label hb-good-label wp-block-paragraph">Good to ask</p>
+<ul class="wp-block-list hb-good">
+<li>What am I not seeing clearly about this decision?</li>
+<li>What would change if I waited another few months?</li>
+<li>What is actually driving my hesitation here?</li>
+</ul>
+<p class="hb-topic-label hb-avoid-label wp-block-paragraph">Better asked elsewhere</p>
+<ul class="wp-block-list hb-avoid">
+<li>Just tell me which choice is correct.</li>
+<li>Guarantee that one option will work out.</li>
+</ul>
+<p class="hb-tip wp-block-paragraph">A consultation works best when you bring the decision as a whole, including the part of you that already leans one way, rather than asking for a verdict from scratch.</p>
+<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
+<div class="wp-block-button hb-cta"><a class="wp-block-button__link hb-cta" href="/go/" rel="nofollow sponsored">Talk Through Your Decision</a></div>
+</div>
+</div></div>
+<div class="wp-block-group hb-topic" id="hb-grief-closure"><div class="wp-block-group__inner-container is-layout-constrained wp-block-group-is-layout-constrained">
+<h3 class="wp-block-heading">Grief &amp; Closure</h3>
+<p class="wp-block-paragraph">Consultations around grief and closure tend to move more slowly and more carefully, and that pace is respected here throughout.</p>
+<p class="hb-topic-label hb-good-label wp-block-paragraph">Good to ask</p>
+<ul class="wp-block-list hb-good">
+<li>What might help me feel more at peace with this loss?</li>
+<li>Is there anything left unresolved that I am carrying?</li>
+<li>How do I begin to move forward without feeling like I’m letting go of something important?</li>
+</ul>
+<p class="hb-topic-label hb-avoid-label wp-block-paragraph">Better asked elsewhere</p>
+<ul class="wp-block-list hb-avoid">
+<li>Contact a specific person who has passed.</li>
+<li>Promise me a sign by a certain date.</li>
+</ul>
+<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
+<div class="wp-block-button hb-cta"><a class="wp-block-button__link hb-cta" href="/go/" rel="nofollow sponsored">Request a Gentle Consultation</a></div>
+</div>
+</div></div>
+<div class="wp-block-group hb-prose" id="hb-formats-intro"><div class="wp-block-group__inner-container is-layout-constrained wp-block-group-is-layout-constrained">
+<h2 class="wp-block-heading">The Different Ways a Consultation Can Be Structured</h2>
+<p class="wp-block-paragraph">Not every situation calls for the same format, so consultations here are offered in a few different structures depending on what you need from the conversation.</p>
+<p class="wp-block-paragraph">Some people want a brief introductory conversation to see whether this is useful at all. Others prefer a more focused session aimed at a single decision, a general energy check on how things currently feel, a structured overview based on your birth chart, or a plan for staying in touch over several follow-up conversations.</p>
+<p class="wp-block-paragraph">None of these formats is inherently better than another. They are simply suited to different situations and different comfort levels. The following sections describe each one in more detail.</p>
+<p class="wp-block-paragraph">You are also welcome to say you are not sure which format fits, and let the reader suggest one based on how you describe your situation, rather than choosing blind beforehand.</p>
+</div></div>
+<div class="wp-block-group hb-method" id="hb-intro-consultation"><div class="wp-block-group__inner-container is-layout-constrained wp-block-group-is-layout-constrained">
+<h3 class="wp-block-heading">Intro Consultation: A Low-Pressure First Conversation</h3>
+<p class="wp-block-paragraph">This is the simplest format available, meant for anyone who isn’t sure whether a psychic consultation is right for them at all. You describe your situation in general terms, and the reader responds with an honest first impression of it.</p>
+<p class="wp-block-paragraph">There is no expectation that this conversation resolves everything. It is meant to help you decide whether continuing, in any format, would be worthwhile for you, without any pressure attached to that decision either way.</p>
+<ul class="wp-block-list hb-explore">
+<li>Whether this kind of conversation feels useful to you</li>
+<li>A general first impression of your situation</li>
+<li>What format might suit your question best going forward</li>
+<li>Any immediate concerns worth naming before you decide anything further</li>
+</ul>
+<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
+<div class="wp-block-button hb-cta"><a class="wp-block-button__link hb-cta" href="/go/" rel="nofollow sponsored">Book an Intro Consultation</a></div>
+</div>
+</div></div>
+<div class="wp-block-group hb-method" id="hb-clarity-session"><div class="wp-block-group__inner-container is-layout-constrained wp-block-group-is-layout-constrained">
+<h3 class="wp-block-heading">Clarity Session: Focused on One Specific Question</h3>
+<p class="wp-block-paragraph">A clarity session narrows in on a single decision or question rather than covering broad ground. It suits people who already know what they are trying to work through and want a focused conversation about exactly that.</p>
+<p class="wp-block-paragraph">The reader concentrates the entire consultation on that one question, working through it from a few different angles rather than moving on to unrelated topics that dilute the time available.</p>
+<ul class="wp-block-list hb-explore">
+<li>The forces currently shaping one specific decision</li>
+<li>What is realistically within your control versus outside it</li>
+<li>A few different ways to think about the same question</li>
+<li>What tends to happen if the decision is delayed further</li>
+</ul>
+<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
+<div class="wp-block-button hb-cta"><a class="wp-block-button__link hb-cta" href="/go/" rel="nofollow sponsored">Book a Clarity Session</a></div>
+</div>
+</div></div>
+<div class="wp-block-group hb-method" id="hb-energy-check"><div class="wp-block-group__inner-container is-layout-constrained wp-block-group-is-layout-constrained">
+<h3 class="wp-block-heading">Energy Check: A General Read on How Things Currently Feel</h3>
+<p class="wp-block-paragraph">An energy check is less about one specific question and more about a general read on your current situation, how things feel right now, and whether that matches what is actually happening around you.</p>
+<p class="wp-block-paragraph">It suits people going through a period of change who want a broader perspective rather than a single narrow answer to one question, especially when several things are shifting at once.</p>
+<ul class="wp-block-list hb-explore">
+<li>A general impression of the period you are currently in</li>
+<li>Whether tension you are feeling matches something real or something carried unnecessarily</li>
+<li>What seems to be shifting for you in the near term</li>
+<li>Where your attention might be best placed right now</li>
+</ul>
+<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
+<div class="wp-block-button hb-cta"><a class="wp-block-button__link hb-cta" href="/go/" rel="nofollow sponsored">Request an Energy Check</a></div>
+</div>
+</div></div>
+<div class="wp-block-group hb-method" id="hb-birth-chart-overview"><div class="wp-block-group__inner-container is-layout-constrained wp-block-group-is-layout-constrained">
+<h3 class="wp-block-heading">Birth-Chart Overview: A Structured Look at Timing</h3>
+<p class="wp-block-paragraph">This format uses your birth details to build a structured overview of timing and tendencies, rather than an open-ended intuitive conversation. It suits people who prefer a more organized, reference-based approach to a reading.</p>
+<p class="wp-block-paragraph">The reader walks through what your chart suggests about the current period and connects it to whatever situation you have described, treating the chart as a reference point rather than a fixed script to follow.</p>
+<ul class="wp-block-list hb-explore">
+<li>Whether the current period favors action or patience</li>
+<li>Recurring tendencies that show up across your chart</li>
+<li>How a specific relationship or decision lines up with your chart</li>
+<li>Broader timing windows worth being aware of</li>
+</ul>
+<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
+<div class="wp-block-button hb-cta"><a class="wp-block-button__link hb-cta" href="/go/" rel="nofollow sponsored">Request a Chart Overview</a></div>
+</div>
+</div></div>
+<div class="wp-block-group hb-method" id="hb-follow-up-plan"><div class="wp-block-group__inner-container is-layout-constrained wp-block-group-is-layout-constrained">
+<h3 class="wp-block-heading">Follow-Up Plan: Staying in Touch Over Time</h3>
+<p class="wp-block-paragraph">Some situations do not resolve in a single conversation. A follow-up plan sets up a loose structure for checking back in, after a decision has played out, or after enough time has passed to see whether an earlier impression held up.</p>
+<p class="wp-block-paragraph">This is not a subscription or a required commitment of any kind. It is simply an option for people who would rather revisit a situation deliberately than start over from scratch each time, especially when a decision unfolds gradually rather than all at once.</p>
+<ul class="wp-block-list hb-explore">
+<li>A reasonable interval for checking back in on a decision</li>
+<li>What is worth watching for between now and then</li>
+<li>How to describe any changes clearly at the next conversation</li>
+<li>Whether a different format might suit a follow-up better than the original one</li>
+</ul>
+<p class="hb-closer wp-block-paragraph">Whichever format you start with, none of them locks you in. Plenty of people begin with a brief intro consultation and, over time, settle into whichever structure actually fits how they think through decisions.</p>
+<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
+<div class="wp-block-button hb-cta"><a class="wp-block-button__link hb-cta" href="/go/" rel="nofollow sponsored">Set Up a Follow-Up Plan</a></div>
+</div>
+</div></div>
+<div class="wp-block-group hb-values" id="hb-ethics-confidentiality"><div class="wp-block-group__inner-container is-layout-constrained wp-block-group-is-layout-constrained">
+<h2 class="wp-block-heading">Our Approach to Ethics and Confidentiality</h2>
+<h3 class="wp-block-heading">Who Is Permitted to Offer a Consultation</h3>
+<p class="wp-block-paragraph">Every reader associated with this service is reviewed before being allowed to take a consultation request. We are specifically looking for readers who engage directly with what a person describes, rather than relying on general, one-size-fits-all statements that could apply to any visitor.</p>
+<p class="wp-block-paragraph">No reader here is permitted to guarantee a specific outcome, and we would encourage you to be cautious of any psychic service that does. A consultation is intended to offer perspective, not certainty, and any reader who presents it otherwise is not upholding the standard we require.</p>
+<h3 class="wp-block-heading">A Disclaimer Worth Repeating</h3>
+<p class="wp-block-paragraph">This service is not a substitute for a licensed medical, legal, or financial professional. If your situation touches on your health, a legal matter, or a significant financial decision, please consult the appropriate professional directly. A consultation can sit alongside that advice, but it does not replace it, and no outcome can be guaranteed, no matter how confident a particular impression may feel in the moment.</p>
+<h3 class="wp-block-heading">How Your Information Is Handled</h3>
+<p class="wp-block-paragraph">What you describe during a consultation is not published or shared beyond what is necessary to provide the consultation itself, and it is not sold to third parties.</p>
+<p class="wp-block-paragraph">If you would prefer your information not be retained at all, you are entitled to request its removal, and that request will be honored.</p>
+<p class="wp-block-paragraph">This applies equally whether you request a single consultation or return several times over a longer period. There is no public record of what you have discussed, and nothing beyond what is required to conduct the consultation is kept on file.</p>
+</div></div>
+<div class="wp-block-group hb-values" id="hb-why-choose-us"><div class="wp-block-group__inner-container is-layout-constrained wp-block-group-is-layout-constrained">
+<h2 class="wp-block-heading">Why Choose This Consultation Service</h2>
+<h3 class="wp-block-heading">A Genuine Conversation, Not a Recording</h3>
+<p class="wp-block-paragraph">It would be simpler, and cheaper, to offer a pre-recorded or automated response instead of a live consultation. We chose not to. A reader responds to what you actually describe, which means the conversation can follow wherever your situation actually leads rather than a fixed outline.</p>
+<h3 class="wp-block-heading">No Pressure to Book Anything Further</h3>
+<p class="wp-block-paragraph">The consultation is complete on its own terms. If you decide afterward that a longer session would help, that decision is entirely yours, made without any pressure applied during the free conversation itself, and without a sales pitch tacked onto the end of it.</p>
+<h3 class="wp-block-heading">A Format to Match Your Situation</h3>
+<p class="wp-block-paragraph">Because several consultation formats are available, you are not required to fit your situation into a single approach. A brief intro conversation, a focused clarity session, or a structured chart overview are all reasonable starting points, and none of them commits you to anything beyond that first conversation.</p>
+</div></div>
+<div class="wp-block-group hb-faq" id="hb-faq"><div class="wp-block-group__inner-container is-layout-constrained wp-block-group-is-layout-constrained">
+<h2 class="wp-block-heading">Questions People Often Ask Beforehand</h2>
+<h3 class="wp-block-heading">Is the consultation genuinely free?</h3>
+<p class="wp-block-paragraph">Yes. The first consultation carries no charge and requires no payment information in advance. Any further session is entirely optional and up to you.</p>
+<h3 class="wp-block-heading">How long does a consultation take?</h3>
+<p class="wp-block-paragraph">Most consultations are completed within a short window, though the exact length depends on the format chosen and how much detail you would like to cover, so a focused clarity session and a broader energy check may run differently.</p>
+<h3 class="wp-block-heading">Am I speaking with an actual reader?</h3>
+<p class="wp-block-paragraph">Yes. Every consultation is conducted by a live reader responding directly to your situation, not by an automated system of any kind.</p>
+<h3 class="wp-block-heading">What happens to what I share during the consultation?</h3>
+<p class="wp-block-paragraph">It is used only to provide the consultation and is not published or sold. You may request that it be deleted afterward if you prefer.</p>
+<h3 class="wp-block-heading">Can I request a different format afterward?</h3>
+<p class="wp-block-paragraph">Yes. If a different consultation format seems better suited to your situation, you are welcome to request it for a future conversation.</p>
+</div></div>
+<div class="wp-block-group hb-final" id="hb-final-cta"><div class="wp-block-group__inner-container is-layout-constrained wp-block-group-is-layout-constrained">
+<h2 class="wp-block-heading">Request Your Free Consultation</h2>
+<p class="wp-block-paragraph">Whatever situation you are currently working through, a calm, honest conversation with a reader may help you see it more clearly before you decide anything further.</p>
+<p class="wp-block-paragraph">The first consultation is free, unhurried, and comes with no obligation to continue afterward. If it turns out to be useful, you will know by the end of it, and if it doesn’t, that is a reasonable outcome too, not a wasted conversation.</p>
+<ol class="wp-block-list hb-final-steps">
+<li>Describe your situation in your own words</li>
+<li>Connect with a reader suited to it</li>
+<li>Discuss it openly, with no obligation after</li>
+</ol>
+<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
+<div class="wp-block-button hb-cta"><a class="wp-block-button__link hb-cta" href="/go/" rel="nofollow sponsored">Book Your Free Consultation Now</a></div>
+</div>
+</div></div>
+<div class="wp-block-group hb-disclaimer" id="hb-disclaimer"><div class="wp-block-group__inner-container is-layout-constrained wp-block-group-is-layout-constrained">
+<p class="wp-block-paragraph">Provided for guidance and entertainment purposes only, and not a substitute for professional medical, legal, or financial advice. No outcome can be guaranteed. This service is intended for individuals 18 years of age or older. Some links on this page lead to a partner service, and we may receive a commission if you continue there.</p>
+</div></div>
+</div><script type="speculationrules">
 {"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/fpc-landing/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
 </script>
 <script id="wp-emoji-settings" type="application/json">
-{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://free-psychic-consultation.com/wp-includes/js/wp-emoji-release.min.js?ver=7.0.2"}}
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://free-psychic-consultation.com/wp-includes/js/wp-emoji-release.min.js?ver=7.1"}}
 </script>
 <script type="module">
 /*! This file is auto-generated */
-const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(window._wpemojiSettings=a,"wpEmojiSettingsSupports"),s=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const a=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===a[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,a){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!a(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,a){let r;const o=(r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),s=(o.textBaseline="top",o.font="600 32px Arial",{});return e.forEach(e=>{s[e]=t(o,e,n,a)}),s}function r(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}a.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),c.toString(),p.toString()].join(",")+"));",a=new Blob([e],{type:"text/javascript"});const r=new Worker(URL.createObjectURL(a),{name:"wpTestEmojiSupports"});return void(r.onmessage=e=>{i(n=e.data),r.terminate(),t(n)})}catch(e){}i(n=f(s,u,c,p))}t(n)}).then(e=>{for(const n in e)a.supports[n]=e[n],a.supports.everything=a.supports.everything&&a.supports[n],"flag"!==n&&(a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&a.supports[n]);var t;a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&!a.supports.flag,a.supports.everything||((t=a.source||{}).concatemoji?r(t.concatemoji):t.wpemoji&&t.twemoji&&(r(t.twemoji),r(t.wpemoji)))});
+var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const r=JSON.parse(t.text),s=(window._wpemojiSettings=r,"wpEmojiSettingsSupports"),o=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,r){let a;const s=(a="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),o=(s.textBaseline="top",s.font="600 32px Arial",{});return e.forEach(e=>{o[e]=t(s,e,n,r)}),o}function a(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}r.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(s));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(o),u.toString(),c.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{i(n=e.data),a.terminate(),t(n)})}catch(e){}i(n=f(o,u,c,p))}t(n)}).then(e=>{for(const n in e)r.supports[n]=e[n],r.supports.everything=r.supports.everything&&r.supports[n],"flag"!==n&&(r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&r.supports[n]);var t;r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&!r.supports.flag,r.supports.everything||((t=r.source||{}).concatemoji?a(t.concatemoji):t.wpemoji&&t.twemoji&&(a(t.twemoji),a(t.wpemoji)))});
 //# sourceURL=https://free-psychic-consultation.com/wp-includes/js/wp-emoji-loader.min.js
 </script>
-<footer class="trust-footer" role="contentinfo"><div class="trust-footer-inner"><div class="trust-links-main"><a href="/privacy/">Privacy</a> &middot; <a href="/terms-and-conditions/">Terms &amp; Conditions</a> &middot; <a href="/legal-disclaimer/">Disclaimer</a> &middot; <a href="/who-we-are/">Who We Are</a> &middot; <a href="/get-in-touch/">Get in Touch</a></div><div class="trust-links-extra"><a href="/content-guidelines/">Content Guidelines</a> &middot; <a href="/cookie-notice/">Cookie Notice</a> &middot; <a href="/accessibility-statement/">Accessibility</a></div></div></footer><style>
+<footer class="trust-footer" role="contentinfo"><div class="trust-footer-inner"><div class="trust-links-main"><a href="/privacy/">Privacy</a> · <a href="/terms-and-conditions/">Terms &amp; Conditions</a> · <a href="/legal-disclaimer/">Disclaimer</a> · <a href="/who-we-are/">Who We Are</a> · <a href="/get-in-touch/">Get in Touch</a></div><div class="trust-links-extra"><a href="/content-guidelines/">Content Guidelines</a> · <a href="/cookie-notice/">Cookie Notice</a> · <a href="/accessibility-statement/">Accessibility</a></div></div></footer><style>
 
 .trust-footer{background:#141422;padding:22px 0 14px;border-top:1px solid rgba(212,168,67,0.15);}
 
@@ -1080,6 +1110,4 @@ const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(
 .trust-links-extra a:hover{color:rgba(255,255,255,0.7);}
 
 </style></body>
-
 </html>
-
